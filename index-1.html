@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b2545"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
+<title>Little Leaders Coaching</title>
+<style>
+:root{--g:#14532d;--g2:#166534;--bg:#f3f6f1;--card:#fff;--tx:#1b2a1f;--mu:#5b6b60;--bd:#d9e2d6;--red:#b91c1c;--amb:#b45309;--blu:#1d4ed8}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.45 "Segoe UI",Roboto,"Noto Nastaliq Urdu","Noto Sans Arabic",sans-serif;padding-bottom:84px}
+header{background:var(--g);color:#fff;padding:14px 16px;padding-top:calc(14px + env(safe-area-inset-top,0px))}
+header h1{margin:0;font-size:18px}header small{opacity:.85;display:block;margin-top:2px}
+main{max-width:760px;margin:0 auto;padding:12px}
+nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--bd);display:flex;padding-bottom:env(safe-area-inset-bottom,0px);z-index:5}
+nav button{flex:1;border:0;background:none;padding:9px 2px;font:inherit;font-size:13px;color:var(--mu);display:flex;flex-direction:column;align-items:center;gap:1px}
+nav button b{font-size:20px;font-weight:400}nav button.on{color:var(--g);font-weight:700;box-shadow:inset 0 3px 0 var(--g)}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px;margin-bottom:10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.stat{background:#fff;border:1px solid var(--bd);border-left:6px solid var(--g);border-radius:10px;padding:10px}
+.stat span{display:block;color:var(--mu);font-size:13px}.stat strong{font-size:22px}
+.stat.p{border-left-color:#15803d}.stat.a{border-left-color:var(--red)}.stat.l{border-left-color:var(--amb)}.stat.b{border-left-color:var(--blu)}
+h2{font-size:18px;margin:6px 0 10px}h3{font-size:15px;margin:0 0 8px}
+label{display:block;font-size:13px;color:var(--mu);margin:8px 0 3px}
+input,select{width:100%;padding:11px;font:inherit;border:1px solid #b9c7b6;border-radius:8px;background:#fff;color:var(--tx)}
+.btn{border:0;border-radius:8px;padding:11px 14px;font:inherit;font-weight:600;background:var(--g);color:#fff;cursor:pointer}
+.btn.s{padding:7px 10px;font-size:14px}.btn.o{background:#fff;color:var(--g);border:1px solid var(--g)}.btn.r{background:var(--red)}.btn.a{background:var(--amb)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.row>*{flex:1}.sp{justify-content:space-between}.sp>*{flex:none}
+.warn{background:#fffbeb;border:1px solid #f59e0b;color:#78350f;border-radius:10px;padding:10px;font-size:14px;margin-bottom:10px}
+.tag{display:inline-block;border-radius:20px;padding:2px 10px;font-size:13px;font-weight:700}
+.Paid,.P{background:#dcfce7;color:#166534}.Partial,.L{background:#fef3c7;color:#92400e}.Unpaid,.A{background:#fee2e2;color:#991b1b}
+.mu{color:var(--mu);font-size:14px}
+.seg{display:flex;gap:6px;margin-top:8px}.seg button{flex:1;padding:10px 0;border:1px solid var(--bd);background:#fff;border-radius:8px;font:inherit;font-weight:600}
+.seg button.P.on{background:#15803d;color:#fff}.seg button.A.on{background:var(--red);color:#fff}.seg button.L.on{background:var(--amb);color:#fff}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px 4px;border-bottom:1px solid var(--bd);text-align:center}th:first-child,td:first-child{text-align:left}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px}.chips button{flex:none;border:1px solid var(--bd);background:#fff;border-radius:20px;padding:5px 12px;font:inherit;font-size:13px}.chips button.on{background:var(--g);color:#fff}
+#modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:flex-end;justify-content:center;z-index:10}
+#modal.show{display:flex}#mbox{background:#fff;width:100%;max-width:560px;max-height:88vh;overflow:auto;border-radius:16px 16px 0 0;padding:14px;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px))}
+#toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:#111;color:#fff;padding:9px 16px;border-radius:20px;font-size:14px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:20}#toast.show{opacity:1}
+
+:root{--g:#0f2a4a;--g2:#0d9488;--bg:#eef3f8;--tx:#10243e;--bd:#d6e0ec}
+body{padding-bottom:16px}main{max-width:980px}
+header{background:linear-gradient(135deg,#0b2545,#13496b 60%,#0d9488);padding:calc(10px + env(safe-area-inset-top,0px)) 14px 10px}
+html{-webkit-text-size-adjust:100%}.hd{flex-wrap:wrap}@media(max-width:480px){.hr{width:100%;margin-left:0;justify-content:flex-end}.hd h1{font-size:15px}main{padding:8px}}
+.hd{display:flex;gap:10px;align-items:center;max-width:980px;margin:auto}.hd h1{font-size:16px;line-height:1.25}.hd small{font-size:12px}
+.logo{flex:none;width:40px;height:40px;border-radius:10px;background:#fff;color:#0b2545;font-weight:800;display:grid;place-items:center;border-bottom:4px solid #0d9488}
+.hr{margin-left:auto;display:flex;gap:6px;align-items:center;flex:none}.pill{font-size:12px;padding:2px 8px;border-radius:12px;background:rgba(255,255,255,.18)}
+.ic{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:8px;padding:5px 8px;font:inherit;font-size:13px}
+nav{position:sticky;top:0;bottom:auto;border-top:0;border-bottom:1px solid var(--bd);overflow-x:auto;padding:0;scrollbar-width:none;background:var(--card)}
+nav button{flex:none;flex-direction:row;padding:12px 14px;white-space:nowrap;font-size:14px;gap:6px}nav button b{font-size:16px}
+nav button.on{color:#0d9488;box-shadow:inset 0 -3px 0 #0d9488}
+.btn{background:linear-gradient(135deg,#0f2a4a,#0f766e)}.stat{border-left-color:#0d9488}.stat strong{color:var(--g)}
+footer{max-width:980px;margin:0 auto;padding:12px}.fm{margin-top:8px;font-size:14px}.fm.ok{color:#047857}.fm.bad{color:#b45309}
+@media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}}
+[data-theme=dark]{--bg:#0b1220;--card:#131c2e;--tx:#e6edf7;--mu:#9fb0c8;--bd:#25324a;--g:#9fd8ff}
+[data-theme=dark] input,[data-theme=dark] select,[data-theme=dark] textarea,[data-theme=dark] .seg button,[data-theme=dark] .stat,[data-theme=dark] .chips button,[data-theme=dark] #mbox{background:var(--card);color:var(--tx);border-color:var(--bd)}
+[data-theme=dark] .btn.o{background:transparent;color:#5eead4;border-color:#5eead4}[data-theme=dark] .stat strong{color:#e6edf7}
+
+/* v4 professional theme */
+:root:not([data-theme=dark]){--bg:#f1f5f9;--bd:#e2e8f0;--tx:#0f172a;--mu:#64748b}
+body{background:var(--bg);font-family:"Segoe UI",Roboto,"Noto Sans","Noto Nastaliq Urdu",system-ui,sans-serif}
+header{background:linear-gradient(120deg,#0a1f44 0%,#0f3d6b 55%,#0f766e 100%);box-shadow:0 2px 10px rgba(10,31,68,.28)}
+.hd h1{font-size:17px;font-weight:700;letter-spacing:.2px}.hd small{opacity:.85}
+.logo{background:none;border:0;width:46px;height:46px;display:block}.logo svg{width:46px;height:46px;display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))}
+.card,.stat{border:1px solid var(--bd);border-radius:14px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 4px 12px rgba(15,23,42,.04)}
+.stat{border-left:5px solid #0d9488}
+nav{background:var(--card);box-shadow:0 1px 0 var(--bd)}nav button{font-weight:600}nav button.on{color:#0f766e}
+.btn{border-radius:10px;box-shadow:0 1px 2px rgba(15,42,74,.2)}
+h2{color:#0f2a4a;font-weight:700}th{background:#f1f5f9;color:#334155;font-size:13px}
+input,select,textarea{border-radius:10px;border-color:#cbd5e1}input:focus,select:focus,textarea:focus{outline:2px solid #14b8a6;border-color:#14b8a6}
+[data-theme=dark] h2{color:#e6edf7}[data-theme=dark] th{background:#1b2740;color:#cbd5e1}[data-theme=dark] nav button.on{color:#5eead4}
+@media print{footer,header,nav,.noprint,#toast,.btn,#modal{display:none!important}body{background:#fff;padding:0}.card{border:0;break-inside:avoid}}
+</style>
+</head>
+<body>
+<header><div class="hd"><div class="logo"><svg viewBox="0 0 48 48" aria-label="Little Leaders logo"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1f44"/><stop offset="1" stop-color="#0d9488"/></linearGradient></defs><rect width="48" height="48" rx="11" fill="url(#lg)"/><polygon points="15,17 15,22 24,26 33,22 33,17" fill="#cfe0ee"/><polygon points="24,8 39,14 24,20 9,14" fill="#fff"/><line x1="38" y1="14.5" x2="38" y2="23" stroke="#f5c04b" stroke-width="1.2"/><circle cx="38" cy="23.5" r="1.3" fill="#f5c04b"/><text x="24" y="40" font-family="Arial,sans-serif" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">LL</text><rect x="16" y="43" width="16" height="1.2" fill="#7ee0d4"/></svg></div><div><h1>Little Leaders Coaching and Computer Centre</h1><small>لٹل لیڈرز کوچنگ اینڈ کمپیوٹر سینٹر</small></div><div class="hr"><span id="net" class="pill"></span><button class="ic" id="ib" hidden onclick="inst()">📲 Install</button><button class="ic" onclick="theme()" aria-label="Toggle theme">🌓</button></div></div></header>
+<nav id="nav"></nav>
+<main id="app"></main>
+
+<div id="modal"><div id="mbox"></div></div>
+<div id="toast"></div>
+<script>window.uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,10);window.isNative=()=>false;window.cloudRender=()=>false;window.cloudCard=()=>"";window.doPrint=()=>window.print();window.cloud={};</script>
+<script>
+const LOGO=`<svg width="52" height="52" viewBox="0 0 48 48" aria-label="Little Leaders logo"><defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1f44"/><stop offset="1" stop-color="#0d9488"/></linearGradient></defs><rect width="48" height="48" rx="11" fill="url(#lg2)"/><polygon points="15,17 15,22 24,26 33,22 33,17" fill="#cfe0ee"/><polygon points="24,8 39,14 24,20 9,14" fill="#fff"/><line x1="38" y1="14.5" x2="38" y2="23" stroke="#f5c04b" stroke-width="1.2"/><circle cx="38" cy="23.5" r="1.3" fill="#f5c04b"/><text x="24" y="40" font-family="Arial,sans-serif" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">LL</text><rect x="16" y="43" width="16" height="1.2" fill="#7ee0d4"/></svg>`;
+const KEY='llcc_data_tuition_v1';
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const pad=n=>String(n).padStart(2,'0');
+const ymd=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+const today=()=>ymd(new Date());
+const curMonth=()=>today().slice(0,7);
+const money=n=>'Rs '+Number(n||0).toLocaleString('en-PK');
+const LBL={P:'Present',A:'Absent',L:'Leave'};
+
+function seed(){
+  const names=[['Ali Raza','Class 5','0300-1112233',2500],['Ayesha Khan','Class 5','0311-2223344',2500],['Hamza Ahmed','Class 8','0321-3334455',3000],['Fatima Noor','Class 8','0333-4445566',3000],['Usman Tariq','Computer','0345-5556677',2000],['Zainab Bibi','Computer','0301-6667788',2000]];
+  const d={students:[],att:{},pays:[],next:1,pid:1,demo:true};
+  names.forEach(n=>d.students.push({id:'LL-'+String(d.next++).padStart(3,'0'),name:n[0],cls:n[1],phone:n[2],fee:n[3]}));
+  for(let k=0;k<12;k++){const dt=new Date();dt.setDate(dt.getDate()-k);if(dt.getDay()===0)continue;const rec={};
+    d.students.forEach((s,i)=>{rec[s.id]=((i*3+k*5)%7===0)?'A':((i+k)%9===0)?'L':'P'});d.att[ymd(dt)]=rec}
+  const pm=new Date();pm.setMonth(pm.getMonth()-1,1);const prev=ymd(pm).slice(0,7),cm=curMonth();
+  const add=(i,m,amt,day)=>d.pays.push({id:d.pid++,sid:d.students[i].id,month:m,amount:amt,date:m+'-'+day});
+  add(0,prev,2500,'05');add(1,prev,2500,'06');add(2,prev,3000,'08');add(3,prev,1500,'10');
+  add(0,cm,2500,'03');add(1,cm,1000,'04');add(2,cm,1500,'05');
+  return d}
+function preset(){
+  const L=[['Taimoor',1000],['Kiran',1000],['Maryam',1000],['Talha',1000],['Abdulwahab',900],['Abdul Rasheed',900],['Suraim',900],['Usman',500],['Ahsan',500],['Ilyas',500],['Abu Hurairah',500],['Arman',500],['Ayan',500],['Sohaib',500],['Khaleel',300],['Fayaz',600],['Usaid',600],['Awais',800]];
+  return {students:L.map((x,i)=>({id:'LL-'+String(i+1).padStart(3,'0'),name:x[0],cls:'Tuition',batch:'',guardian:'',gphone:'',phone:'',subjects:'',admDate:today(),fee:x[1],adm:0})),att:{},pays:[],tests:[],marks:{},next:L.length+1,pid:1,tid:1}}
+function load(){try{const d=JSON.parse(localStorage.getItem(KEY));if(d&&Array.isArray(d.students))return d}catch(e){}const d=(window.LL_CONFIG&&window.LL_CONFIG.DEMO===false)?{students:[],att:{},pays:[],next:1,pid:1}:preset();try{localStorage.setItem(KEY,JSON.stringify(d))}catch(e){}return d}
+function fix(d){d.next=d.next||d.students.length+1;d.pid=d.pid||d.pays.length+1;d.marks=d.marks||{};d.remarks=d.remarks||{};d.grades=d.grades||[[90,'A+'],[80,'A'],[70,'B'],[60,'C'],[50,'D'],[0,'F']];
+  if(!d.tests){d.tests=[];d.tid=1;const c5=d.demo?d.students.filter(s=>s.cls==='Class 5'):[];if(c5.length)[['Mathematics',[45,28]],['English',[38,41]]].forEach(x=>{const id=d.tid++;d.tests.push({id,cls:'Class 5',subject:x[0],month:curMonth(),date:today(),total:50,pass:17});d.marks[id]={};c5.forEach((s,i)=>d.marks[id][s.id]=x[1][i]??30)})}
+  d.tid=d.tid||d.tests.reduce((a,t)=>Math.max(a,t.id),0)+1;d.pays.forEach(p=>{if(!p.cref)p.cref='legacy-pay-'+p.id});d.tests.forEach(t=>{if(!t.cref)t.cref='legacy-test-'+t.id});return d}
+let db=fix(load());save();
+function save(){try{localStorage.setItem(KEY,JSON.stringify(db))}catch(e){alert('Could not save data. Browser storage may be full or blocked.')}if(typeof queueSync==='function')queueSync()}
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),1800)}
+
+const act=()=>db.students.filter(s=>!s.archived);
+const classes=()=>[...new Set(act().map(s=>s.cls))].sort();
+const stuName=id=>{const s=db.students.find(x=>x.id===id);return s?s.name:id};
+const paidFor=(sid,m)=>db.pays.filter(p=>p.sid===sid&&p.month===m).reduce((a,p)=>a+p.amount,0);
+const statusOf=(fee,paid)=>paid<=0?'Unpaid':paid>=fee?'Paid':'Partial';
+
+let tab='dash',editId=null,showForm=false;
+let A={date:today(),cls:'',stu:'',draft:{},dirty:false,month:curMonth()};
+let F={month:curMonth(),filter:''};
+const TABS=[['dash','🏠','Dashboard'],['stu','👩‍🎓','Students'],['att','✅','Attendance'],['fee','💰','Fees'],['tst','📝','Tests & Results'],['rep','📊','Reports'],['set','⚙️','Settings']];
+function setTab(t){tab=t;S.prof=null;T.id=null;T.rc=null;F.rcpt=null;showForm=false;editId=null;render()}
+function render(){
+  if(cloudRender())return;
+  $('#nav').innerHTML=TABS.filter(t=>!(window.cloud&&cloud.profile&&cloud.profile.role==='teacher'&&t[0]==='fee')).map(t=>`<button class="${tab===t[0]?'on':''}" onclick="setTab('${t[0]}')"><b>${t[1]}</b>${t[2]}</button>`).join('');
+  ({dash:rDash,stu:rStu,att:rAtt,fee:rFee,tst:rTst,rep:rRep,set:rSet})[tab]();window.scrollTo(0,0);
+  const on=$('#nav .on');if(on&&on.scrollIntoView)on.scrollIntoView({inline:'center',block:'nearest'})}
+
+/* ---------- Helpers ---------- */
+const attOf=(s,m)=>{let p=0,a=0,l=0;for(const d in db.att){if(d.startsWith(m)){const v=db.att[d][s.id];if(v==='P')p++;else if(v==='A')a++;else if(v==='L')l++}}const t=p+a+l;return{p,a,l,t,pc:t?Math.round(p/t*100):null}};
+const dueFor=(s,m)=>(s.fee||0)+(((s.adm||0)>0&&(s.admDate||'').slice(0,7)===m)?s.adm:0);
+const lastPay=n=>[...db.pays].sort((a,b)=>b.date.localeCompare(a.date)||b.id-a.id).slice(0,n);
+const empty=t=>`<p class="mu">${t}</p>`;
+/* ---------- Dashboard ---------- */
+function rDash(){
+  const td=today(),rec=db.att[td]||{},c={P:0,A:0,L:0},m=curMonth();
+  act().forEach(s=>{if(rec[s.id])c[rec[s.id]]++});
+  let col=0,due=0;act().forEach(s=>{const d=dueFor(s,m),p=paidFor(s.id,m);col+=p;due+=Math.max(0,d-p)});
+  const up=db.tests.filter(t=>t.date>=td).sort((a,b)=>a.date.localeCompare(b.date)).slice(0,4),rp=lastPay(5);
+  const ra=Object.keys(db.att).sort().reverse().slice(0,5);
+  $('#app').innerHTML=`<h2>Dashboard / ڈیش بورڈ</h2>
+  <div class="row noprint" style="margin-bottom:10px"><button class="btn s" onclick="setTab('stu');showForm=true;render()">+ Add Student</button><button class="btn s" onclick="setTab('att')">✅ Mark Attendance</button><button class="btn s" onclick="setTab('fee');payPick()">💰 Record Payment</button><button class="btn s" onclick="setTab('tst');testForm()">📝 Create Test</button></div>
+  <div class="grid"><div class="stat"><span>Active students</span><strong>${act().length}</strong></div>
+  <div class="stat p"><span>Present today</span><strong>${c.P}</strong></div><div class="stat a"><span>Absent today</span><strong>${c.A}</strong></div><div class="stat l"><span>Leave today</span><strong>${c.L}</strong></div>
+  <div class="stat p"><span>Collected (${m})</span><strong>${money(col)}</strong></div><div class="stat a"><span>Outstanding</span><strong>${money(due)}</strong></div>
+  <div class="stat b"><span>Upcoming tests</span><strong>${up.length}</strong></div></div>
+  <div class="card"><h3>Students by class</h3>${classes().map(c=>`${esc(c)}: <b>${act().filter(s=>s.cls===c).length}</b>`).join(' · ')||empty('No students yet.')}</div>
+  <div class="card"><h3>Upcoming tests</h3>${up.map(t=>`<div class="mu">${t.date} · ${esc(t.cls)} · ${esc(t.subject)}</div>`).join('')||empty('No upcoming tests. Tap Create Test.')}</div>
+  <div class="card"><h3>Recent fee payments</h3>${rp.map(p=>`<div class="mu">${p.date} · ${esc(stuName(p.sid))} · <b>${money(p.amount)}</b></div>`).join('')||empty('No payments recorded yet.')}</div>
+  <div class="card"><h3>Recent attendance</h3>${ra.map(d=>{const v=Object.values(db.att[d]);return `<div class="mu">${d}: ✅ ${v.filter(x=>x==='P').length} · ❌ ${v.filter(x=>x==='A').length} · 🟡 ${v.filter(x=>x==='L').length}</div>`}).join('')||empty('No attendance marked yet.')}</div>
+  <div class="warn">⚠️ Records are saved only in this browser on this device. Clearing browser data erases them. Make a backup in Settings regularly.</div>`}
+async function backup(){const txt=JSON.stringify(db,null,2),name='little-leaders-backup-'+today()+'.json';
+  if(isNative()){try{await nativeShareFile(name,txt);toast('Choose where to save the backup');return true}catch(e){alert('Backup failed: '+e.message);return false}}
+  const b=new Blob([txt],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),2000);toast('Backup downloaded');return true}
+function restore(inp){const f=inp.files[0];if(!f)return;const r=new FileReader();
+  r.onload=()=>{try{const d=JSON.parse(r.result);if(!Array.isArray(d.students)||typeof d.att!=='object'||!Array.isArray(d.pays))throw 0;
+    if(!confirm('This will replace all current data with the backup. Continue?'))return;
+    d.next=d.next||d.students.length+1;d.pid=d.pid||d.pays.length+1;db=fix(d);save();toast('Backup restored');render()}catch(e){alert('Invalid backup file.')}inp.value=''};
+  r.readAsText(f)}
+
+/* ---------- Students ---------- */
+let S={q:'',f:'',arch:false,prof:null};
+const sf=(id,l,v,t='text',x='')=>`<label>${l}</label><input id="${id}" type="${t}" value="${esc(v==null?'':v)}" ${x}>`;
+function rStu(){
+  if(S.prof)return rProf();
+  const e=db.students.find(s=>s.id===editId)||{};
+  const opts=[...new Set([...db.students.map(s=>s.cls),...db.students.map(s=>s.batch).filter(Boolean)])].sort();
+  const form=showForm?`<div class="card"><h3>${editId?'Edit student':'Add student'} / طالب علم</h3>${editId?'':sf('fi','Student ID (leave blank for automatic)','')}${sf('fn','Name / نام *',e.name)}${sf('fc','Class / جماعت *',e.cls||'Tuition','text','list="cl"')}<datalist id="cl">${classes().map(c=>`<option value="${esc(c)}">`).join('')}</datalist>
+  ${sf('fb','Batch / بیچ',e.batch)}${sf('fa','Admission date',e.admDate||today(),'date')}${sf('fs','Subjects (comma separated)',e.subjects)}${sf('fg','Guardian name',e.guardian)}${sf('fp','Contact number (optional)',e.phone,'tel')}${sf('fq','Guardian phone',e.gphone,'tel')}${sf('ff','Monthly fee (PKR) *',e.fee,'number','min="0"')}${sf('fd','Admission / other charge (PKR, added to admission month)',e.adm||0,'number','min="0"')}
+  <div class="row" style="margin-top:12px"><button class="btn" onclick="saveStu()">Save</button><button class="btn o" onclick="showForm=false;editId=null;render()">Cancel</button></div></div>`:'';
+  $('#app').innerHTML=`<div class="row sp"><h2>Students / طلبہ</h2><button class="btn s" onclick="showForm=true;editId=null;render()">+ Add</button></div>${form}
+  <div class="row"><input placeholder="Search name or ID…" value="${esc(S.q)}" oninput="S.q=this.value;fillStu()"><select onchange="S.f=this.value;fillStu()"><option value="">All classes/batches</option>${opts.map(o=>`<option ${S.f===o?'selected':''}>${esc(o)}</option>`).join('')}</select><select onchange="S.arch=this.value==='1';fillStu()"><option value="0">Active</option><option value="1" ${S.arch?'selected':''}>Inactive</option></select></div><div id="sl" style="margin-top:10px"></div>`;
+  fillStu();if(showForm)$('#fn').focus()}
+function fillStu(){
+  const q=S.q.toLowerCase(),list=db.students.filter(s=>!!s.archived===S.arch&&(!q||(s.name+' '+s.id).toLowerCase().includes(q))&&(!S.f||s.cls===S.f||s.batch===S.f)).sort((a,b)=>a.cls.localeCompare(b.cls)||a.name.localeCompare(b.name));
+  let last='';
+  $('#sl').innerHTML=(list.length?`<p class="mu">${list.length} student(s)</p>`:empty('No students found.'))+list.map(s=>{
+    const h=s.cls!==last?`<h3 style="margin-top:12px">${esc(s.cls)}</h3>`:'';last=s.cls;
+    return h+`<div class="card"><b>${esc(s.name)}</b><div class="mu">${esc(s.id)} · ${esc(s.cls)}${s.batch?' · '+esc(s.batch):''}</div><div class="mu">Guardian: ${esc(s.guardian||'-')} · 📞 ${esc(s.gphone||s.phone)} · ${money(s.fee)}/month</div>
+    <div class="row" style="margin-top:8px"><button class="btn s" onclick="S.prof='${s.id}';render()">Profile</button><button class="btn s o" onclick="editStu('${s.id}')">Edit</button><button class="btn s a" onclick="archStu('${s.id}')">${s.archived?'Reactivate':'Deactivate'}</button>${s.archived?`<button class="btn s r" onclick="delStu('${s.id}')">Delete</button>`:''}</div></div>`}).join('')}
+function editStu(id){editId=id;showForm=true;render()}
+function archStu(id){const s=db.students.find(x=>x.id===id);if(!s.archived&&!confirm('Deactivate '+s.name+'? Records are kept and you can reactivate later.'))return;s.archived=!s.archived;save();toast(s.archived?'Deactivated':'Reactivated');fillStu()}
+function saveStu(){const v=k=>$('#'+k).value.trim();
+  const name=v('fn'),cls=v('fc'),phone=v('fp'),guardian=v('fg'),fee=parseFloat(v('ff')),adm=parseFloat(v('fd'))||0;
+  if(!name||!cls||isNaN(fee)||fee<0||adm<0){alert('Please fill name, class and a valid fee.');return}
+  const o={name,cls,phone,guardian,fee,adm,batch:v('fb'),admDate:v('fa'),subjects:v('fs'),gphone:v('fq')};
+  if(editId)Object.assign(db.students.find(x=>x.id===editId),o);
+  else{let id=v('fi').toUpperCase();
+    if(id){if(db.students.some(x=>x.id.toUpperCase()===id)){alert('This Student ID already exists. Choose another or leave it blank.');return}}
+    else do{id='LL-'+String(db.next++).padStart(3,'0')}while(db.students.some(x=>x.id===id));
+    db.students.push({id,...o})}
+  save();showForm=false;editId=null;toast('Student saved');render()}
+function delStu(id){
+  if(!confirm('PERMANENTLY delete '+stuName(id)+' and all attendance, payment and marks records? This cannot be undone.'))return;
+  db.students=db.students.filter(x=>x.id!==id);db.pays=db.pays.filter(p=>p.sid!==id);
+  Object.keys(db.att).forEach(d=>{delete db.att[d][id];if(!Object.keys(db.att[d]).length)delete db.att[d]});
+  Object.values(db.marks).forEach(m=>delete m[id]);save();toast('Student deleted');fillStu()}
+function rProf(){const s=db.students.find(x=>x.id===S.prof);if(!s){S.prof=null;return rStu()}
+  const m=curMonth(),a=attOf(s,m),all={P:0,A:0,L:0};Object.values(db.att).forEach(r=>{if(r[s.id])all[r[s.id]]++});
+  const ps=db.pays.filter(p=>p.sid===s.id).sort((x,y)=>y.date.localeCompare(x.date)),d=dueFor(s,m),pd=paidFor(s.id,m);
+  const ts=db.tests.filter(t=>t.cls===s.cls&&(db.marks[t.id]||{})[s.id]!=null).sort((x,y)=>y.date.localeCompare(x.date));
+  $('#app').innerHTML=`<div class="row sp noprint"><button class="btn s o" onclick="S.prof=null;render()">← Back</button><button class="btn s" onclick="tab='tst';T.rc='${s.id}';T.month=curMonth();render()">Report card</button></div>
+  <div class="card" style="margin-top:10px"><h2 style="margin:0">${esc(s.name)} ${s.archived?'<span class="tag L">Inactive</span>':''}</h2><div class="mu">${s.id} · ${esc(s.cls)}${s.batch?' · '+esc(s.batch):''} · Admitted ${s.admDate||'-'}</div>
+  <div class="mu">Guardian: ${esc(s.guardian||'-')} · ${esc(s.gphone||'-')} · Student: ${esc(s.phone)}</div><div class="mu">Subjects: ${esc(s.subjects||'-')}</div></div>
+  <div class="card"><h3>Attendance</h3><div class="mu">This month: P ${a.p} · A ${a.a} · L ${a.l}${a.pc==null?'':' · '+a.pc+'%'}</div><div class="mu">All time: P ${all.P} · A ${all.A} · L ${all.L}</div></div>
+  <div class="card"><h3>Fees (${m})</h3><div class="mu">Due ${money(d)} · Paid ${money(pd)} · Balance ${money(Math.max(0,d-pd))} · ${statusOf(d,pd)}</div>${ps.map(p=>`<div class="mu">${p.date} · ${money(p.amount)} · for ${p.month}${p.method?' · '+esc(p.method):''}${p.ref?' · Ref '+esc(p.ref):''}</div>`).join('')||empty('No payments yet.')}</div>
+  <div class="card"><h3>Tests &amp; marks</h3>${ts.map(t=>{const o=db.marks[t.id][s.id];return `<div class="mu">${t.date} · ${esc(t.subject)} · ${o}/${t.total} · ${pct(o,t.total)}% · ${gradeOf(pct(o,t.total))} · ${o>=t.pass?'Pass':'Fail'}</div>`}).join('')||empty('No results yet.')}</div>`}
+
+/* ---------- Attendance ---------- */
+const inCls=()=>act().filter(s=>s.cls===A.cls);
+function loadDraft(){const rec=db.att[A.date]||{};A.draft={};inCls().forEach(s=>A.draft[s.id]=rec[s.id]||'');A.dirty=false}
+function rAtt(){
+  const cl=classes();if(!cl.includes(A.cls))A.cls=cl[0]||'';
+  if(!Object.keys(A.draft).length||inCls().some(s=>!(s.id in A.draft)))loadDraft();
+  const list=inCls().filter(s=>!A.stu||s.id===A.stu);
+  const dates=Object.keys(db.att).sort().reverse().slice(0,10);
+  $('#app').innerHTML=`<h2>Attendance / حاضری</h2><div class="card">
+  <div class="row"><div><label>Date / تاریخ</label><input type="date" value="${A.date}" onchange="A.date=this.value||today();loadDraft();rAtt()"></div>
+  <div><label>Class / جماعت</label><select onchange="A.cls=this.value;A.stu='';loadDraft();rAtt()">${cl.map(c=>`<option ${c===A.cls?'selected':''}>${esc(c)}</option>`).join('')}</select></div></div>
+  <label>Student filter / طالب علم</label><select onchange="A.stu=this.value;rAtt()"><option value="">All students</option>${inCls().map(s=>`<option value="${s.id}" ${s.id===A.stu?'selected':''}>${esc(s.name)}</option>`).join('')}</select>
+  <label>Recorded dates (tap to open)</label><div class="chips">${dates.map(d=>`<button class="${d===A.date?'on':''}" onclick="A.date='${d}';loadDraft();rAtt()">${d.slice(5)}</button>`).join('')||'<span class="mu">None yet</span>'}</div></div>
+  <div class="row"><button class="btn P" style="background:#15803d" onclick="markAll('P')">All Present</button><button class="btn r" onclick="markAll('A')">All Absent</button></div>
+  <div style="margin-top:10px">${list.map(s=>`<div class="card"><b>${esc(s.name)}</b> <span class="mu">${s.id}</span>
+  <div class="seg">${['P','A','L'].map(k=>`<button class="${k} ${A.draft[s.id]===k?'on':''}" onclick="mark('${s.id}','${k}')">${LBL[k]}</button>`).join('')}</div></div>`).join('')||'<p class="mu">No students in this class.</p>'}</div>
+  <div class="row sp" style="position:sticky;bottom:78px"><span class="tag ${A.dirty?'L':'P'}">${A.dirty?'Unsaved changes':'Saved'}</span><button class="btn" onclick="saveAtt()">💾 Save attendance</button></div>
+  ${report()}`}
+function mark(id,k){A.draft[id]=k;A.dirty=true;rAtt()}
+function markAll(k){inCls().forEach(s=>A.draft[s.id]=k);A.dirty=true;rAtt()}
+function saveAtt(){
+  const rec=db.att[A.date]||{};let n=0,un=0;
+  inCls().forEach(s=>{const v=A.draft[s.id];if(v){rec[s.id]=v;n++}else{un++}});
+  if(!n){alert('Mark at least one student first.');return}
+  db.att[A.date]=rec;save();A.dirty=false;toast('Saved '+n+' record(s)'+(un?' · '+un+' not marked':''));rAtt()}
+function report(){
+  const m=A.month,rows=inCls().filter(s=>!A.stu||s.id===A.stu).map(s=>{let p=0,a=0,l=0;
+    Object.keys(db.att).forEach(d=>{if(d.startsWith(m)){const v=db.att[d][s.id];if(v==='P')p++;else if(v==='A')a++;else if(v==='L')l++}});
+    const t=p+a+l;return `<tr><td>${esc(s.name)}</td><td>${p}</td><td>${a}</td><td>${l}</td><td><b>${t?Math.round(p/t*100)+'%':'-'}</b></td></tr>`}).join('');
+  return `<div class="card" style="margin-top:12px"><div class="row sp"><h3>Monthly report / ماہانہ رپورٹ</h3><button class="btn s o noprint" onclick="doPrint()">🖨 Print</button></div><input type="month" value="${m}" onchange="A.month=this.value||curMonth();rAtt()">
+  <p class="mu">Class: ${esc(A.cls)}. Percentage = Present ÷ marked days.</p><div style="overflow-x:auto"><table><tr><th>Student</th><th>P</th><th>A</th><th>L</th><th>%</th></tr>${rows}</table></div></div>`}
+
+/* ---------- Fees ---------- */
+function rFee(){
+  if(F.rcpt)return rRcpt();
+  const m=F.month;let tot=0,col=0,due=0;
+  const rows=act().map(s=>{const d=dueFor(s,m),p=paidFor(s.id,m),st=statusOf(d,p);tot+=d;col+=p;due+=Math.max(0,d-p);return{s,d,p,st,bal:d-p}}).filter(r=>!F.filter||r.st===F.filter);
+  $('#app').innerHTML=`<div class="row sp"><h2>Fees / فیس</h2><button class="btn s noprint" onclick="payPick()">+ Payment</button></div><div class="card"><label>Month / مہینہ</label><input type="month" value="${m}" onchange="F.month=this.value||curMonth();rFee()">
+  <label>Status filter</label><select onchange="F.filter=this.value;rFee()"><option value="">All</option>${['Paid','Partial','Unpaid'].map(x=>`<option ${F.filter===x?'selected':''}>${x}</option>`).join('')}</select></div>
+  <div class="grid"><div class="stat"><span>Total fees due</span><strong>${money(tot)}</strong></div><div class="stat p"><span>Collected</span><strong>${money(col)}</strong></div><div class="stat a"><span>Outstanding</span><strong>${money(due)}</strong></div></div>
+  ${rows.map(r=>`<div class="card"><div class="row sp"><div><b>${esc(r.s.name)}</b><div class="mu">${r.s.id} · ${esc(r.s.cls)}</div></div><span class="tag ${r.st}">${r.st==='Partial'?'Partially Paid':r.st}</span></div>
+  <div class="mu" style="margin-top:6px">Due ${money(r.d)} · Paid ${money(r.p)} · <b style="color:${r.bal>0?'var(--red)':'#0d9488'}">Balance ${money(Math.max(0,r.bal))}</b></div>
+  <div class="row" style="margin-top:8px"><button class="btn s" onclick="payForm('${r.s.id}')">+ Record payment</button><button class="btn s o" onclick="history('${r.s.id}')">History / receipts</button></div></div>`).join('')||empty('No records.')}`}
+function rRcpt(){const p=db.pays.find(x=>x.id===F.rcpt);if(!p){F.rcpt=null;return rFee()}
+  const s=db.students.find(x=>x.id===p.sid)||{name:p.sid,cls:'-',fee:0},d=dueFor(s,p.month),pd=paidFor(p.sid,p.month),row=(a,b)=>`<tr><td>${a}</td><td style="text-align:right">${b}</td></tr>`;
+  $('#app').innerHTML=`<div class="row sp noprint"><button class="btn s o" onclick="F.rcpt=null;render()">← Back</button><button class="btn s" onclick="doPrint()">🖨 Print receipt</button></div>
+  <div class="card" style="margin-top:10px"><div style="text-align:center">${LOGO}<h2 style="margin:0">Little Leaders Coaching and Computer Centre</h2><b>FEE RECEIPT</b></div><table>${row('Receipt no.','RC-'+String(p.id).padStart(4,'0'))}${row('Date',p.date)}${row('Student',esc(s.name)+' ('+p.sid+')')}${row('Class',esc(s.cls))}${row('Fee month',p.month)}${row('Payment method',esc(p.method||'-'))}${row('Reference',esc(p.ref||'-'))}${row('<b>Amount paid</b>','<b>'+money(p.amount)+'</b>')}${row('Total paid for month',money(pd))}${row('Balance',money(Math.max(0,d-pd)))}</table><p class="mu">Thank you. This is a computer-generated receipt.</p></div>`}
+function payPick(){if(!act().length){alert('Add a student first.');return}
+  openM(`<h3>Record payment</h3><label>Student</label><select id="pp">${act().map(s=>`<option value="${s.id}">${esc(s.name)} (${esc(s.cls)})</option>`).join('')}</select><div class="row" style="margin-top:12px"><button class="btn" onclick="payForm($('#pp').value)">Next</button><button class="btn o" onclick="closeM()">Cancel</button></div>`)}
+function openM(h){$('#mbox').innerHTML=h;$('#modal').classList.add('show')}
+function closeM(){$('#modal').classList.remove('show')}
+$('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeM()});
+function payForm(id){
+  const s=db.students.find(x=>x.id===id),bal=Math.max(0,dueFor(s,F.month)-paidFor(id,F.month));
+  openM(`<h3>Payment: ${esc(s.name)}</h3><p class="mu">Due ${money(dueFor(s,F.month))} · Balance for ${F.month}: ${money(bal)}</p>
+  <label>Fee month</label><input type="month" id="pm" value="${F.month}">
+  <label>Amount paid (PKR)</label><input type="number" id="pa" min="1" value="${bal||''}">
+  <label>Payment date</label><input type="date" id="pd" value="${today()}"><label>Payment method</label><select id="pmeth"><option>Cash</option><option>JazzCash</option><option>Easypaisa</option><option>Bank transfer</option><option>Other</option></select><label>Reference (receipt / transaction no.)</label><input id="pr">
+  <div class="row" style="margin-top:12px"><button class="btn" onclick="savePay('${id}')">Save payment</button><button class="btn o" onclick="closeM()">Cancel</button></div>`)}
+function savePay(id){
+  const month=$('#pm').value,amount=parseFloat($('#pa').value),date=$('#pd').value;
+  if(!month||!date||isNaN(amount)||amount<=0){alert('Enter a valid month, amount and date.');return}
+  const s=db.students.find(x=>x.id===id),bal=dueFor(s,month)-paidFor(id,month);
+  if(amount>bal&&!confirm('Amount is more than the balance ('+money(Math.max(0,bal))+'). Save anyway?'))return;
+  db.pays.push({id:db.pid++,sid:id,month,amount,date,ref:$('#pr').value.trim(),method:$('#pmeth').value,cref:uid()});save();closeM();toast('Payment saved');render()}
+function history(id){
+  const ps=db.pays.filter(p=>p.sid===id).sort((a,b)=>b.date.localeCompare(a.date));
+  openM(`<h3>Payment history: ${esc(stuName(id))}</h3>${ps.map(p=>`<div class="row sp card"><div><b>${money(p.amount)}</b><div class="mu">${p.date} · for ${p.month}${p.method?' · '+esc(p.method):''}${p.ref?' · Ref '+esc(p.ref):''}</div></div><div class="row" style="flex:none"><button class="btn s o" onclick="closeM();tab='fee';F.rcpt=${p.id};render()">Receipt</button><button class="btn s r" onclick="delPay(${p.id},'${id}')">Delete</button></div></div>`).join('')||'<p class="mu">No payments yet.</p>'}
+  <button class="btn o" style="width:100%" onclick="closeM()">Close</button>`)}
+function delPay(pid,sid){if(!confirm('Delete this payment?'))return;db.pays=db.pays.filter(p=>p.id!==pid);save();history(sid);render()}
+/* ---------- Tests & Results ---------- */
+let T={month:curMonth(),cls:'',id:null,rc:null};
+const pct=(o,t)=>t?Math.round(o/t*1000)/10:0;
+const gradeOf=p=>{const g=[...db.grades].sort((a,b)=>b[0]-a[0]).find(x=>p>=x[0]);return g?g[1]:'-'};
+const stuT=()=>act().filter(s=>s.cls===T.cls);
+function rTst(){
+  const cl=classes();if(!cl.includes(T.cls))T.cls=cl[0]||'';
+  if(T.id)return rMarks();if(T.rc)return rCard();
+  const ts=db.tests.filter(t=>t.month===T.month&&t.cls===T.cls);
+  $('#app').innerHTML=`<h2>Tests &amp; Results / ٹیسٹ</h2><div class="card"><div class="row"><div><label>Month</label><input type="month" value="${T.month}" onchange="T.month=this.value||curMonth();rTst()"></div>
+  <div><label>Class</label><select onchange="T.cls=this.value;rTst()">${cl.map(c=>`<option ${c===T.cls?'selected':''}>${esc(c)}</option>`).join('')}</select></div></div>
+  <div class="row" style="margin-top:10px"><button class="btn s" onclick="testForm()">+ New test</button><button class="btn s o" onclick="gradeForm()">Grade scale</button></div></div>
+  ${ts.map(t=>`<div class="card"><b>${esc(t.subject)}</b> <span class="mu">${t.date} · Total ${t.total} · Pass ${t.pass}</span><div class="mu">${Object.keys(db.marks[t.id]||{}).length} result(s) entered</div>
+  <div class="row" style="margin-top:8px"><button class="btn s" onclick="T.id=${t.id};rTst()">Enter / edit marks</button><button class="btn s r" onclick="delTest(${t.id})">Delete</button></div></div>`).join('')||'<p class="mu">No tests for this month and class. Tap + New test.</p>'}
+  <h3 style="margin-top:14px">Report cards / رپورٹ کارڈ</h3>${stuT().map(s=>`<div class="card row sp"><b>${esc(s.name)}</b><button class="btn s o" onclick="T.rc='${s.id}';rTst()">Report card</button></div>`).join('')}`}
+function testForm(){if(!T.cls){alert('Add a student with a class first.');return}
+  openM(`<h3>New test: ${esc(T.cls)} · ${T.month}</h3><label>Subject</label><input id="ts"><label>Test date</label><input type="date" id="td" value="${today()}"><label>Total marks</label><input type="number" id="tt" value="100"><label>Passing marks</label><input type="number" id="tp" value="33">
+  <div class="row" style="margin-top:12px"><button class="btn" onclick="saveTest()">Save</button><button class="btn o" onclick="closeM()">Cancel</button></div>`)}
+function saveTest(){const subject=$('#ts').value.trim(),date=$('#td').value,total=parseFloat($('#tt').value),pass=parseFloat($('#tp').value);
+  if(!subject||!date||!(total>0)||isNaN(pass)||pass<0||pass>total){alert('Enter subject, date, total marks, and passing marks between 0 and total.');return}
+  db.tests.push({id:db.tid++,cls:T.cls,subject,month:T.month,date,total,pass,cref:uid()});save();closeM();rTst()}
+function delTest(id){if(!confirm('Delete this test and all its marks?'))return;db.tests=db.tests.filter(t=>t.id!==id);delete db.marks[id];save();rTst()}
+function rMarks(){const t=db.tests.find(x=>x.id===T.id),m=db.marks[t.id]||{};
+  $('#app').innerHTML=`<div class="row sp"><h2>${esc(t.subject)} · ${t.month}</h2><button class="btn s o" onclick="T.id=null;rTst()">← Back</button></div><p class="mu">Total ${t.total}, pass ${t.pass}. Leave blank if absent.</p>
+  ${stuT().map(s=>{const o=m[s.id],r=o==null?'':`<span class="tag ${o>=t.pass?'P':'A'}">${pct(o,t.total)}% · ${gradeOf(pct(o,t.total))} · ${o>=t.pass?'Pass':'Fail'}</span>`;
+  return `<div class="card"><div class="row sp"><b>${esc(s.name)}</b>${r}</div><input type="number" step="0.5" min="0" max="${t.total}" id="m_${s.id}" value="${o==null?'':o}" placeholder="Obtained marks"></div>`}).join('')}
+  <button class="btn" style="width:100%" onclick="saveMarks()">💾 Save marks</button>`}
+function saveMarks(){const t=db.tests.find(x=>x.id===T.id),m={};
+  for(const s of stuT()){const v=$('#m_'+s.id).value.trim();if(v==='')continue;const o=parseFloat(v);
+    if(isNaN(o)||o<0||o>t.total){alert(s.name+': marks must be between 0 and '+t.total);return}m[s.id]=o}
+  db.marks[t.id]=m;save();toast('Marks saved');rTst()}
+function summary(s,month){let o=0,tt=0;const rows=db.tests.filter(t=>t.cls===s.cls&&t.month===month).map(t=>{const v=(db.marks[t.id]||{})[s.id];if(v!=null){o+=v;tt+=t.total}return{t,v}});return{rows,o,tt,p:pct(o,tt)}}
+function rCard(){const s=db.students.find(x=>x.id===T.rc),m=T.month,r=summary(s,m);
+  const peers=act().filter(x=>x.cls===s.cls).map(x=>({id:x.id,p:summary(x,m)})).filter(x=>x.p.tt>0).sort((a,b)=>b.p.p-a.p.p);
+  const pos=peers.findIndex(x=>x.id===s.id)+1;let pa=0,ab=0,lv=0;
+  Object.keys(db.att).forEach(d=>{if(d.startsWith(m)){const v=db.att[d][s.id];if(v==='P')pa++;else if(v==='A')ab++;else if(v==='L')lv++}});
+  const at=pa+ab+lv,hist=[];
+  db.tests.filter(t=>t.cls===s.cls&&(db.marks[t.id]||{})[s.id]!=null).sort((a,b)=>b.date.localeCompare(a.date)).forEach(t=>{const o=db.marks[t.id][s.id];hist.push(`<tr><td>${t.month}</td><td>${esc(t.subject)}</td><td>${o}/${t.total}</td><td>${pct(o,t.total)}%</td></tr>`)});
+  $('#app').innerHTML=`<div class="row sp noprint"><button class="btn s o" onclick="T.rc=null;rTst()">← Back</button><button class="btn s" onclick="doPrint()">🖨 Print / Save as PDF</button></div>
+  <div class="card" style="margin-top:10px"><div style="text-align:center">${LOGO}<h2 style="margin:0">Little Leaders Coaching &amp; Computer Centre</h2><div>Monthly Report Card · ${m}</div></div>
+  <p><b>${esc(s.name)}</b> · ID ${s.id} · Class ${esc(s.cls)}</p>
+  <div style="overflow-x:auto"><table><tr><th>Subject</th><th>Total</th><th>Obtained</th><th>%</th><th>Grade</th><th>Result</th></tr>
+  ${r.rows.map(x=>x.v==null?`<tr><td>${esc(x.t.subject)}</td><td>${x.t.total}</td><td colspan="4">Not entered</td></tr>`:`<tr><td>${esc(x.t.subject)}</td><td>${x.t.total}</td><td>${x.v}</td><td>${pct(x.v,x.t.total)}</td><td>${gradeOf(pct(x.v,x.t.total))}</td><td>${x.v>=x.t.pass?'Pass':'Fail'}</td></tr>`).join('')||'<tr><td colspan="6">No tests this month</td></tr>'}
+  <tr><th>Overall</th><th>${r.tt}</th><th>${r.o}</th><th>${r.p}</th><th>${r.tt?gradeOf(r.p):'-'}</th><th></th></tr></table></div>
+  <p>${pos?`Class position: <b>${pos}</b> of ${peers.length}<br>`:''}Attendance: Present ${pa}, Absent ${ab}, Leave ${lv}${at?' · '+Math.round(pa/at*100)+'%':''}</p>
+  <label>Teacher remarks</label><textarea style="width:100%;padding:10px;font:inherit;border:1px solid #b9c7b6;border-radius:8px" rows="3" onchange="db.remarks['${s.id}|${m}']=this.value;save();toast('Remarks saved')">${esc(db.remarks[s.id+'|'+m]||'')}</textarea></div>
+  <div class="card noprint"><h3>Result history</h3><div style="overflow-x:auto"><table><tr><th>Month</th><th>Subject</th><th>Marks</th><th>%</th></tr>${hist.join('')||'<tr><td colspan="4">No results yet</td></tr>'}</table></div></div>`}
+function gradeForm(){openM(`<h3>Grade scale</h3><p class="mu">Minimum % for each grade.</p>${db.grades.map((g,i)=>`<div class="row"><input type="number" id="gm${i}" value="${g[0]}"><input id="gl${i}" value="${esc(g[1])}"></div>`).join('')}
+  <div class="row" style="margin-top:12px"><button class="btn" onclick="saveGrades()">Save</button><button class="btn o" onclick="closeM()">Cancel</button></div>`)}
+function saveGrades(){const g=db.grades.map((_,i)=>[parseFloat($('#gm'+i).value),$('#gl'+i).value.trim()]);
+  if(g.some(x=>isNaN(x[0])||!x[1])||!g.some(x=>x[0]===0)){alert('Fill every row, and one grade must start at 0.');return}db.grades=g;save();closeM();toast('Grades saved')}
+
+/* ---------- Reports ---------- */
+let RP={type:'att',month:curMonth(),cls:''};
+function resSheet(c,m){const ts=db.tests.filter(t=>t.cls===c&&t.month===m),rows=act().filter(s=>s.cls===c).map(s=>({s,r:summary(s,m)}));
+  const rk=rows.filter(x=>x.r.tt>0).sort((a,b)=>b.r.p-a.r.p).map(x=>x.s.id);
+  return `<div class="card"><h3>${esc(c)} · result sheet ${m}</h3>${ts.length?`<div style="overflow-x:auto"><table><tr><th>Student</th>${ts.map(t=>`<th>${esc(t.subject)}<br>/${t.total}</th>`).join('')}<th>%</th><th>Gr</th><th>Pos</th></tr>
+  ${rows.map(x=>`<tr><td>${esc(x.s.name)}</td>${x.r.rows.map(y=>`<td>${y.v==null?'-':y.v}</td>`).join('')}<td>${x.r.tt?x.r.p:'-'}</td><td>${x.r.tt?gradeOf(x.r.p):'-'}</td><td>${rk.indexOf(x.s.id)+1||'-'}</td></tr>`).join('')}</table></div>`:empty('No tests for this class and month.')}</div>`}
+function rRep(){const cl=classes(),ty=RP.type,m=RP.month;if(RP.cls&&!cl.includes(RP.cls))RP.cls='';const cs=RP.cls?[RP.cls]:cl;let h='';
+  if(ty==='att')h=cs.map(c=>{const rows=act().filter(s=>s.cls===c).map(s=>({s,a:attOf(s,m)})),P=rows.reduce((x,r)=>x+r.a.p,0),N=rows.reduce((x,r)=>x+r.a.t,0);
+    return `<div class="card"><h3>${esc(c)} · attendance ${N?Math.round(P/N*100)+'%':'(no records)'}</h3><div style="overflow-x:auto"><table><tr><th>Student</th><th>P</th><th>A</th><th>L</th><th>%</th></tr>${rows.map(r=>`<tr><td>${esc(r.s.name)}</td><td>${r.a.p}</td><td>${r.a.a}</td><td>${r.a.l}</td><td>${r.a.pc==null?'-':r.a.pc+'%'}</td></tr>`).join('')}</table></div></div>`}).join('');
+  else if(ty==='fee'){let T1=0,T2=0;const rows=act().filter(s=>cs.includes(s.cls)).map(s=>{const d=dueFor(s,m),p=paidFor(s.id,m);T1+=d;T2+=p;return `<tr><td>${esc(s.name)}</td><td>${d}</td><td>${p}</td><td>${Math.max(0,d-p)}</td><td>${statusOf(d,p)}</td></tr>`}).join('');
+    h=`<div class="card"><h3>Fee report ${m} (PKR)</h3><div style="overflow-x:auto"><table><tr><th>Student</th><th>Due</th><th>Paid</th><th>Balance</th><th>Status</th></tr>${rows}<tr><th>Total</th><th>${T1}</th><th>${T2}</th><th>${Math.max(0,T1-T2)}</th><th></th></tr></table></div></div>`}
+  else h=cs.map(c=>resSheet(c,m)).join('');
+  $('#app').innerHTML=`<div class="row sp"><h2>Reports / رپورٹس</h2><button class="btn s noprint" onclick="doPrint()">🖨 Print / Save as PDF</button></div><div class="card noprint"><div class="row"><div><label>Report</label><select onchange="RP.type=this.value;rRep()">${[['att','Attendance'],['fee','Fees'],['res','Results']].map(x=>`<option value="${x[0]}" ${ty===x[0]?'selected':''}>${x[1]}</option>`).join('')}</select></div>
+  <div><label>Month</label><input type="month" value="${m}" onchange="RP.month=this.value||curMonth();rRep()"></div><div><label>Class</label><select onchange="RP.cls=this.value;rRep()"><option value="">All classes</option>${cl.map(c=>`<option ${RP.cls===c?'selected':''}>${esc(c)}</option>`).join('')}</select></div></div></div>${h||empty('No data.')}`}
+/* ---------- Settings ---------- */
+function rSet(){
+  $('#app').innerHTML=`<h2>Settings</h2><div class="card"><h3>Appearance</h3><button class="btn s o" onclick="theme()">🌓 Switch light / dark theme</button></div>
+  <div class="warn">⚠️ Records live only in this browser on this phone. They do not sync to other devices, and clearing browser data erases them. Back up often and keep the file safe (Drive or email).</div>
+  <div class="card"><h3>Backup &amp; restore</h3><div class="row"><button class="btn" onclick="backup()">⬇ Download backup</button><button class="btn o" onclick="$('#rf').click()">⬆ Restore backup</button></div><input type="file" id="rf" accept=".json,application/json" hidden onchange="restore(this)"><p class="mu">Restore replaces current data only after you confirm and the file is checked.</p></div>
+  <div class="card"><h3>Start fresh</h3><p class="mu">Deletes ALL records, including the sample students. Download a backup first.</p><button class="btn s r" onclick="wipeAll()">Delete all data</button></div>
+  <div class="card"><h3>Grade scale</h3><button class="btn s o" onclick="gradeForm()">Edit grades</button></div>
+  ${cloudCard()}<div class="card"><h3>About</h3><p class="mu">Everything is stored only on this phone, in this app. Nothing is sent anywhere. Download a backup often and keep the file safe.</p></div>`}
+function wipeAll(){if(!confirm("Delete ALL data on this phone?"))return;if(!confirm("Are you sure? This cannot be undone."))return;db=fix({students:[],att:{},pays:[],next:1,pid:1});save();toast("All data deleted");render()}
+function theme(){const d=document.documentElement,n=d.dataset.theme==='dark'?'light':'dark';d.dataset.theme=n;try{localStorage.setItem('llcc_theme',n)}catch(e){}}
+try{document.documentElement.dataset.theme=localStorage.getItem('llcc_theme')||'light'}catch(e){}
+/* ---------- PWA, install, share ---------- */
+let dip=null;const standalone=()=>matchMedia('(display-mode: standalone)').matches||navigator.standalone;
+addEventListener('beforeinstallprompt',e=>{e.preventDefault();dip=e;if(!standalone())$('#ib').hidden=false});
+addEventListener('appinstalled',()=>{dip=null;$('#ib').hidden=true;toast('App installed')});
+async function inst(){if(!dip)return;dip.prompt();try{await dip.userChoice}catch(e){}dip=null;$('#ib').hidden=true}
+function net(){$('#net').textContent=navigator.onLine?'● Online':'● Offline'}
+addEventListener('online',net);addEventListener('offline',net);net();
+function hostedUrl(){const cu=(window.LL_CONFIG||{}).APP_URL;if(cu&&/^https:\/\//.test(cu))return cu;const l=location;if(!/^https?:$/.test(l.protocol)||/^(localhost|127\.|10\.|192\.168\.)/.test(l.hostname))return null;return l.origin+l.pathname.replace(/index\.html$/,'')}
+function fmsg(t,ok){const e=$('#fm');e.textContent=t;e.className='fm '+(ok?'ok':'bad')}
+function noUrl(){fmsg('This copy is not on a public website yet (it is a local file, preview or localhost). Publish it online first, then open the hosted link and try again. See SETUP.md.',false)}
+function manual(u){const f=$('#fu');f.hidden=false;f.value=u;f.focus();f.select();fmsg('Automatic copy was blocked. Press and hold the link above and choose Copy.',false)}
+async function copyLink(pre){const u=hostedUrl();if(!u)return noUrl();try{if(isNative())await Capacitor.Plugins.Clipboard.write({string:u});else await navigator.clipboard.writeText(u);$('#fu').hidden=true;fmsg((pre||'')+'Link copied: '+u,true)}catch(e){manual(u)}}
+async function shareApp(){const u=hostedUrl();if(!u)return noUrl();
+  if(!navigator.share&&!isNative())return copyLink('Sharing is not supported in this browser. ');
+  try{const sd={title:'Little Leaders Coaching and Computer Centre',text:'Little Leaders app',url:u};if(isNative())await Capacitor.Plugins.Share.share(sd);else await navigator.share(sd);fmsg('Shared the app link (no student records are shared).',true)}
+  catch(e){if(e&&/abort|cancel/i.test(e.name+' '+e.message))fmsg('Share cancelled.',false);else manual(u)}}
+if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol)&&!isNative())navigator.serviceWorker.register('sw.js').catch(()=>{});
+
+render();
+</script>
+</body>
+</html>
