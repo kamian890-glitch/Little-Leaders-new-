@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0b2545"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
+<meta name="theme-color" content="#1e1b4b"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
 <title>Little Leaders Coaching</title>
 <style>
 :root{--g:#14532d;--g2:#166534;--bg:#f3f6f1;--card:#fff;--tx:#1b2a1f;--mu:#5b6b60;--bd:#d9e2d6;--red:#b91c1c;--amb:#b45309;--blu:#1d4ed8}
@@ -70,7 +70,7 @@ h2{color:#0f2a4a;font-weight:700}th{background:#f1f5f9;color:#334155;font-size:1
 input,select,textarea{border-radius:10px;border-color:#cbd5e1}input:focus,select:focus,textarea:focus{outline:2px solid #14b8a6;border-color:#14b8a6}
 [data-theme=dark] h2{color:#e6edf7}[data-theme=dark] th{background:#1b2740;color:#cbd5e1}[data-theme=dark] nav button.on{color:#5eead4}
 
-#splash{position:fixed;inset:0;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;background:radial-gradient(circle at 50% 28%,#14507a 0%,#0a1f44 58%,#06142e 100%);color:#fff;overflow:hidden;transition:opacity .6s}
+#splash{position:fixed;inset:0;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;background:radial-gradient(circle at 50% 28%,#3730a3 0%,#1e1b4b 58%,#0f0d2e 100%);color:#fff;overflow:hidden;transition:opacity .6s}
 #splash.out{opacity:0}
 #splash:before,#splash:after{content:"";position:absolute;border-radius:50%;background:rgba(20,184,166,.10)}
 #splash:before{width:340px;height:340px;left:-140px;top:-90px}#splash:after{width:300px;height:300px;right:-120px;bottom:-80px;background:rgba(245,192,75,.07)}
@@ -143,14 +143,47 @@ h3::before{content:'';width:4px;height:16px;border-radius:3px;background:linear-
 .av{box-shadow:0 0 0 2px var(--card),0 0 0 3.5px var(--ac)}
 .avb{position:relative;border:0;background:none;padding:0;flex:none;border-radius:50%}.avb i{position:absolute;right:-3px;bottom:-3px;background:var(--ac);color:#fff;border-radius:50%;width:20px;height:20px;font-size:11px;display:grid;place-items:center;font-style:normal;border:2px solid var(--card)}
 th{background:var(--soft);color:var(--mu)}table{border-radius:12px}
+
+/* v8 Royal theme (default) + professional layout */
+:root{--gold:#f5b942}
+:root[data-theme=light],:root:not([data-theme]){--h1:#1e1b4b;--h2:#312e81;--h3:#4f46e5;--bt1:#312e81;--bt2:#4f46e5;--ac:#4f46e5;--soft:#eef2ff}
+[data-theme=navy]{--h1:#0a1f44;--h2:#0f3d6b;--h3:#0f766e;--bt1:#0f2a4a;--bt2:#0f766e;--ac:#0d9488;--soft:#eef6ff}
+:root:not([data-theme=dark]){--bg:#f4f5fb}
+h1,h2,.hero .hi{font-family:Georgia,"Times New Roman","Noto Serif",serif}
+h2{color:var(--h1)}
+header::after{content:'';position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.hd2 h1{font-size:21px;font-weight:700;letter-spacing:.4px}
+.hd2 h1::after{content:'';display:block;width:48px;height:3px;border-radius:2px;background:var(--gold);margin:8px auto 4px}
+.logo svg{border-radius:14px;box-shadow:0 0 0 2px rgba(255,255,255,.92),0 6px 14px rgba(0,0,0,.3);filter:none}
+nav button.on{box-shadow:0 8px 16px -8px var(--bt2),inset 0 -3px 0 var(--gold)}
+h3::before{background:linear-gradient(var(--gold),var(--ac))}
+.hero{background:linear-gradient(135deg,var(--h1),var(--h2) 55%,var(--h3))}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle,rgba(255,255,255,.09) 1.5px,transparent 1.6px) 0 0/16px 16px;pointer-events:none}
+.ring{background:conic-gradient(var(--gold) calc(var(--p)*1%),rgba(255,255,255,.25) 0)}
+th{text-transform:uppercase;font-size:11px;letter-spacing:.6px}
+.card:has(.feeb){border-left:4px solid var(--ac)}
+.card.st-P,.card.fs-Paid{border-left:4px solid #16a34a}.card.st-A,.card.fs-Unpaid{border-left:4px solid #dc2626}.card.st-L,.card.fs-Partial{border-left:4px solid #d97706}
+.btn:disabled{opacity:.4;box-shadow:none}
+
+/* v9 late, namaz, bulk send */
+.T{background:#ffedd5;color:#9a3412}.seg button{font-size:13px}.seg button.T.on{background:#ea580c;color:#fff}
+.card.st-T{border-left:4px solid #ea580c}
+.stat.t::before{content:'⏰'}:root:not([data-theme=dark]) .stat.t{background:linear-gradient(145deg,#fff,#fff7ed)}
+.pr{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:10px}
+.pr button{border:1.5px solid var(--bd);background:var(--card);color:var(--tx);border-radius:12px;padding:8px 0;font:inherit;font-size:12px;font-weight:600;line-height:1.3}
+.pr button small{display:block;font-size:12px;color:var(--mu);font-weight:400}
+.pr button.on{background:linear-gradient(135deg,#16a34a,#15803d);border-color:#15803d;color:#fff}.pr button.on small{color:#dcfce7}
+nav{grid-template-columns:repeat(5,1fr)}nav button{font-size:11px}nav button b{font-size:19px}
+@media(min-width:700px){nav{grid-template-columns:repeat(9,1fr)}}
+.bulk{margin-top:12px;padding:12px;border-radius:14px;background:var(--soft);border:1px dashed var(--ac)}
 @media print{footer,header,nav,.noprint,#toast,.btn,#modal{display:none!important}body{background:#fff;padding:0}.card{border:0;break-inside:avoid}}
 </style>
 </head>
 <body>
-<div id="splash" role="dialog" aria-label="Little Leaders welcome"><div class="lg"><svg viewBox="0 0 48 48" aria-label="Little Leaders logo"><defs><linearGradient id="lgs" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1f44"/><stop offset="1" stop-color="#0d9488"/></linearGradient></defs><rect width="48" height="48" rx="11" fill="url(#lgs)"/><polygon points="15,17 15,22 24,26 33,22 33,17" fill="#cfe0ee"/><polygon points="24,8 39,14 24,20 9,14" fill="#fff"/><line x1="38" y1="14.5" x2="38" y2="23" stroke="#f5c04b" stroke-width="1.2"/><circle cx="38" cy="23.5" r="1.3" fill="#f5c04b"/><text x="24" y="40" font-family="Arial,sans-serif" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">LL</text><rect x="16" y="43" width="16" height="1.2" fill="#7ee0d4"/></svg></div><h1>Little Leaders</h1><div class="sub">Tuition Centre</div><div class="ur" lang="ur" dir="rtl">آج کے بچے، کل کے رہنما</div><div class="en">Today's children, tomorrow's leaders</div><div class="by">Presented by<b>Sir Kamran Zahoor</b></div><div class="bar"><i></i></div></div>
+<div id="splash" role="dialog" aria-label="Little Leaders welcome"><div class="lg"><svg viewBox="0 0 48 48" aria-label="Little Leaders logo"><defs><linearGradient id="lgs" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--h2)"/><stop offset="1" style="stop-color:var(--h3)"/></linearGradient></defs><rect width="48" height="48" rx="11" fill="url(#lgs)"/><polygon points="15,17 15,22 24,26 33,22 33,17" fill="#cfe0ee"/><polygon points="24,8 39,14 24,20 9,14" fill="#fff"/><line x1="38" y1="14.5" x2="38" y2="23" stroke="#f5c04b" stroke-width="1.2"/><circle cx="38" cy="23.5" r="1.3" fill="#f5c04b"/><text x="24" y="40" font-family="Arial,sans-serif" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">LL</text><rect x="16" y="43" width="16" height="1.2" fill="#7ee0d4"/></svg></div><h1>Little Leaders</h1><div class="sub">Tuition Centre</div><div class="ur" lang="ur" dir="rtl">آج کے بچے، کل کے رہنما</div><div class="en">Today's children, tomorrow's leaders</div><div class="by">Presented by<b>Sir Kamran Zahoor</b></div><div class="bar"><i></i></div></div>
 <script>(function(){var s=document.getElementById("splash");if(!s)return;document.documentElement.style.overflow="hidden";setTimeout(function(){s.classList.add("out");document.documentElement.style.overflow="";setTimeout(function(){if(s.parentNode)s.parentNode.removeChild(s)},650)},7000)})();</script>
 
-<header><span id="net" class="pill"></span><div class="hd2"><div class="logo"><svg viewBox="0 0 48 48" aria-label="Little Leaders logo"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1f44"/><stop offset="1" stop-color="#0d9488"/></linearGradient></defs><rect width="48" height="48" rx="11" fill="url(#lg)"/><polygon points="15,17 15,22 24,26 33,22 33,17" fill="#cfe0ee"/><polygon points="24,8 39,14 24,20 9,14" fill="#fff"/><line x1="38" y1="14.5" x2="38" y2="23" stroke="#f5c04b" stroke-width="1.2"/><circle cx="38" cy="23.5" r="1.3" fill="#f5c04b"/><text x="24" y="40" font-family="Arial,sans-serif" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">LL</text><rect x="16" y="43" width="16" height="1.2" fill="#7ee0d4"/></svg></div><h1 id="hname">Little Leaders Coaching and Computer Centre</h1><small id="hsub">لٹل لیڈرز کوچنگ اینڈ کمپیوٹر سینٹر</small></div></header>
+<header><span id="net" class="pill"></span><div class="hd2"><div class="logo"><svg viewBox="0 0 48 48" aria-label="Little Leaders logo"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--h2)"/><stop offset="1" style="stop-color:var(--h3)"/></linearGradient></defs><rect width="48" height="48" rx="11" fill="url(#lg)"/><polygon points="15,17 15,22 24,26 33,22 33,17" fill="#cfe0ee"/><polygon points="24,8 39,14 24,20 9,14" fill="#fff"/><line x1="38" y1="14.5" x2="38" y2="23" stroke="#f5c04b" stroke-width="1.2"/><circle cx="38" cy="23.5" r="1.3" fill="#f5c04b"/><text x="24" y="40" font-family="Arial,sans-serif" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">LL</text><rect x="16" y="43" width="16" height="1.2" fill="#7ee0d4"/></svg></div><h1 id="hname">Little Leaders Coaching and Computer Centre</h1><small id="hsub">لٹل لیڈرز کوچنگ اینڈ کمپیوٹر سینٹر</small></div></header>
 <nav id="nav"></nav>
 <main id="app"></main>
 
@@ -159,7 +192,7 @@ th{background:var(--soft);color:var(--mu)}table{border-radius:12px}
 <div id="toast"></div>
 <script>window.uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,10);window.isNative=()=>false;window.cloudRender=()=>false;window.cloudCard=()=>"";window.doPrint=()=>window.print();window.cloud={};</script>
 <script>
-const LOGO=`<svg width="52" height="52" viewBox="0 0 48 48" aria-label="Little Leaders logo"><defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1f44"/><stop offset="1" stop-color="#0d9488"/></linearGradient></defs><rect width="48" height="48" rx="11" fill="url(#lg2)"/><polygon points="15,17 15,22 24,26 33,22 33,17" fill="#cfe0ee"/><polygon points="24,8 39,14 24,20 9,14" fill="#fff"/><line x1="38" y1="14.5" x2="38" y2="23" stroke="#f5c04b" stroke-width="1.2"/><circle cx="38" cy="23.5" r="1.3" fill="#f5c04b"/><text x="24" y="40" font-family="Arial,sans-serif" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">LL</text><rect x="16" y="43" width="16" height="1.2" fill="#7ee0d4"/></svg>`;
+const LOGO=`<svg width="52" height="52" viewBox="0 0 48 48" aria-label="Little Leaders logo"><defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--h2)"/><stop offset="1" style="stop-color:var(--h3)"/></linearGradient></defs><rect width="48" height="48" rx="11" fill="url(#lg2)"/><polygon points="15,17 15,22 24,26 33,22 33,17" fill="#cfe0ee"/><polygon points="24,8 39,14 24,20 9,14" fill="#fff"/><line x1="38" y1="14.5" x2="38" y2="23" stroke="#f5c04b" stroke-width="1.2"/><circle cx="38" cy="23.5" r="1.3" fill="#f5c04b"/><text x="24" y="40" font-family="Arial,sans-serif" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">LL</text><rect x="16" y="43" width="16" height="1.2" fill="#7ee0d4"/></svg>`;
 const KEY='llcc_data_tuition_v1';
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -168,7 +201,7 @@ const ymd=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
 const today=()=>ymd(new Date());
 const curMonth=()=>today().slice(0,7);
 const money=n=>'Rs '+Number(n||0).toLocaleString('en-PK');
-const LBL={P:'Present',A:'Absent',L:'Leave'};
+const LBL={P:'Present',T:'Late',A:'Absent',L:'Leave'};
 
 function seed(){
   const names=[['Ali Raza','Class 5','0300-1112233',2500],['Ayesha Khan','Class 5','0311-2223344',2500],['Hamza Ahmed','Class 8','0321-3334455',3000],['Fatima Noor','Class 8','0333-4445566',3000],['Usman Tariq','Computer','0345-5556677',2000],['Zainab Bibi','Computer','0301-6667788',2000]];
@@ -187,7 +220,7 @@ function preset(){
 function load(){try{const d=JSON.parse(localStorage.getItem(KEY));if(d&&Array.isArray(d.students))return d}catch(e){}const d=(window.LL_CONFIG&&window.LL_CONFIG.DEMO===false)?{students:[],att:{},pays:[],next:1,pid:1}:preset();try{localStorage.setItem(KEY,JSON.stringify(d))}catch(e){}return d}
 function fix(d){d.next=d.next||d.students.length+1;d.pid=d.pid||d.pays.length+1;d.marks=d.marks||{};d.remarks=d.remarks||{};d.grades=d.grades||[[90,'A+'],[80,'A'],[70,'B'],[60,'C'],[50,'D'],[0,'F']];
   if(!d.tests){d.tests=[];d.tid=1;const c5=d.demo?d.students.filter(s=>s.cls==='Class 5'):[];if(c5.length)[['Mathematics',[45,28]],['English',[38,41]]].forEach(x=>{const id=d.tid++;d.tests.push({id,cls:'Class 5',subject:x[0],month:curMonth(),date:today(),total:50,pass:17});d.marks[id]={};c5.forEach((s,i)=>d.marks[id][s.id]=x[1][i]??30)})}
-  d.tid=d.tid||d.tests.reduce((a,t)=>Math.max(a,t.id),0)+1;d.pays.forEach(p=>{if(!p.cref)p.cref='legacy-pay-'+p.id});d.tests.forEach(t=>{if(!t.cref)t.cref='legacy-test-'+t.id});if(d.off===undefined)d.off=0;d.teacher=d.teacher||'Sir Kamran Zahoor';d.lang=d.lang||'ur';d.cname=d.cname||'Little Leaders Coaching and Computer Centre';return d}
+  d.tid=d.tid||d.tests.reduce((a,t)=>Math.max(a,t.id),0)+1;d.pays.forEach(p=>{if(!p.cref)p.cref='legacy-pay-'+p.id});d.tests.forEach(t=>{if(!t.cref)t.cref='legacy-test-'+t.id});if(d.off===undefined)d.off=0;d.teacher=d.teacher||'Sir Kamran Zahoor';d.lang=d.lang||'ur';if(!d.nmz)d.nmz={};d.cname=d.cname||'Little Leaders Coaching and Computer Centre';return d}
 let db=fix(load());save();
 function save(){try{localStorage.setItem(KEY,JSON.stringify(db))}catch(e){alert('Could not save data. Browser storage may be full or blocked.')}if(typeof queueSync==='function')queueSync()}
 function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),1800)}
@@ -201,17 +234,17 @@ const statusOf=(fee,paid)=>paid<=0?'Unpaid':paid>=fee?'Paid':'Partial';
 let tab='dash',editId=null,showForm=false;
 let A={date:today(),cls:'',stu:'',draft:{},dirty:false,month:curMonth()};
 let F={month:curMonth(),filter:''};
-const TABS=[['dash','🏠','Home'],['stu','👩‍🎓','Students'],['att','✅','Attendance'],['fee','💰','Fees'],['tst','📝','Tests'],['rep','📊','Reports'],['msg','💬','Messages'],['set','⚙️','Settings']];
+const TABS=[['dash','🏠','Home'],['stu','👩‍🎓','Students'],['att','✅','Attendance'],['nmz','🕌','Namaz'],['fee','💰','Fees'],['tst','📝','Tests'],['rep','📊','Reports'],['msg','💬','Messages'],['set','⚙️','Settings']];
 function setTab(t){tab=t;S.prof=null;T.id=null;T.rc=null;F.rcpt=null;showForm=false;editId=null;render()}
 function render(){
   if(cloudRender())return;
   if(db.theme)document.documentElement.dataset.theme=db.theme;applyBrand();
   $('#nav').innerHTML=TABS.filter(t=>!(window.cloud&&cloud.profile&&cloud.profile.role==='teacher'&&t[0]==='fee')).map(t=>`<button class="${tab===t[0]?'on':''}" onclick="setTab('${t[0]}')"><b>${t[1]}</b>${t[2]}</button>`).join('');
-  ({dash:rDash,stu:rStu,att:rAtt,fee:rFee,tst:rTst,rep:rRep,msg:rMsg,set:rSet})[tab]();if(UPD&&$('#app').insertAdjacentHTML)$('#app').insertAdjacentHTML('afterbegin','<div class="warn noprint" onclick="refreshApp()" style="cursor:pointer">🔄 New version '+UPD+' is ready. Tap here to update.</div>');window.scrollTo(0,0);
+  ({dash:rDash,stu:rStu,att:rAtt,fee:rFee,tst:rTst,rep:rRep,msg:rMsg,nmz:rNmz,set:rSet})[tab]();if(UPD&&$('#app').insertAdjacentHTML)$('#app').insertAdjacentHTML('afterbegin','<div class="warn noprint" onclick="refreshApp()" style="cursor:pointer">🔄 New version '+UPD+' is ready. Tap here to update.</div>');window.scrollTo(0,0);
   const on=$('#nav .on');if(on&&on.scrollIntoView)on.scrollIntoView({inline:'center',block:'nearest'})}
 
 /* ---------- Helpers ---------- */
-const attOf=(s,m)=>{let p=0,a=0,l=0;for(const d in db.att){if(d.startsWith(m)&&!offD(d)){const v=db.att[d][s.id];if(v==='P')p++;else if(v==='A')a++;else if(v==='L')l++}}const t=p+a+l;return{p,a,l,t,pc:t?Math.round(p/t*100):null}};
+const attOf=(s,m)=>{let p=0,lt=0,a=0,l=0;for(const d in db.att){if(d.startsWith(m)&&!offD(d)){const v=db.att[d][s.id];if(v==='P')p++;else if(v==='T')lt++;else if(v==='A')a++;else if(v==='L')l++}}const t=p+lt+a+l;return{p,lt,a,l,t,pc:t?Math.round((p+lt)/t*100):null}};
 const dueFor=(s,m)=>(s.fee||0)+(((s.adm||0)>0&&(s.admDate||'').slice(0,7)===m)?s.adm:0);
 const lastPay=n=>[...db.pays].sort((a,b)=>b.date.localeCompare(a.date)||b.id-a.id).slice(0,n);
 const empty=t=>`<p class="mu">${t}</p>`;
@@ -221,18 +254,18 @@ function backupWarn(){const d=db.lastBackup;if(!d)return '<div class="warn">No b
 /* ---------- Dashboard ---------- */
 const greet=()=>{const h=new Date().getHours();return (h<12?'Good morning':h<17?'Good afternoon':'Good evening')+(db.teacher?', '+db.teacher:'')};
 function rDash(){
-  const td=today(),rec=db.att[td]||{},c={P:0,A:0,L:0},m=curMonth(),L=act();
+  const td=today(),rec=db.att[td]||{},c={P:0,T:0,A:0,L:0},m=curMonth(),L=act();
   L.forEach(s=>{if(rec[s.id])c[rec[s.id]]++});
   let tot=0,col=0,due=0;const pend=[];
   L.forEach(s=>{const d=dueFor(s,m),p=paidFor(s.id,m);tot+=d;col+=p;due+=Math.max(0,d-p);if(d-p>0)pend.push({s,b:d-p})});
   pend.sort((a,b)=>b.b-a.b);
   const ab=L.filter(s=>rec[s.id]==='A'),up=db.tests.filter(t=>t.date>=td).sort((a,b)=>a.date.localeCompare(b.date)).slice(0,3),rp=lastPay(4);
   const rowOf=(s,txt,btn)=>`<div class="row sp" style="margin:6px 0"><div class="who">${av(s,36)}<div><b>${esc(s.name)}</b>${txt?`<div class="mu">${txt}</div>`:''}</div></div>${btn}</div>`;
-  $('#app').innerHTML=`${(()=>{const n=c.P+c.A+c.L,pp=n?Math.round(c.P/n*100):0;return `<div class="hero"><div style="min-width:0"><div class="hi">${esc(greet())}</div><div class="dt">${longDate(td)}</div><div class="sub">${L.length} students · ${money(tot)} monthly fees</div></div><div class="ring" style="--p:${pp}"><div><b>${pp}%</b><small>present</small></div></div></div>`})()}
+  $('#app').innerHTML=`${(()=>{const n=c.P+c.T+c.A+c.L,pp=n?Math.round((c.P+c.T)/n*100):0;return `<div class="hero"><div style="min-width:0"><div class="hi">${esc(greet())}</div><div class="dt">${longDate(td)}</div><div class="sub">${L.length} students · ${money(tot)} monthly fees</div></div><div class="ring" style="--p:${pp}"><div><b>${pp}%</b><small>present</small></div></div></div>`})()}
   ${offD(td)?'<div class="warn" style="background:#eff6ff;border-color:#93c5fd;color:#1e3a8a">Today is the weekly holiday. Attendance is off.</div>':''}
   <div class="row noprint" style="margin-bottom:10px"><button class="btn s" onclick="setTab('stu');showForm=true;render()">+ Add student</button><button class="btn s" onclick="setTab('att')">✅ Attendance</button><button class="btn s" onclick="setTab('fee');payPick()">💰 Payment</button><button class="btn s" onclick="setTab('msg')">💬 Message parents</button></div>
   <div class="grid"><div class="stat"><span>Students</span><strong>${L.length}</strong></div><div class="stat b"><span>Monthly fees</span><strong>${money(tot)}</strong></div>
-  <div class="stat p"><span>Present today</span><strong>${c.P}</strong></div><div class="stat a"><span>Absent today</span><strong>${c.A}</strong></div><div class="stat l"><span>Leave today</span><strong>${c.L}</strong></div>
+  <div class="stat p"><span>Present today</span><strong>${c.P}</strong></div><div class="stat a"><span>Absent today</span><strong>${c.A}</strong></div><div class="stat t"><span>Late today</span><strong>${c.T}</strong></div><div class="stat l"><span>Leave today</span><strong>${c.L}</strong></div>
   <div class="stat p"><span>Collected (${m})</span><strong>${money(col)}</strong></div><div class="stat a"><span>Outstanding</span><strong>${money(due)}</strong></div><div class="stat b"><span>Upcoming tests</span><strong>${up.length}</strong></div></div>
   <div class="card"><h3>Absent today</h3>${ab.map(s=>rowOf(s,'',`<button class="btn s o" onclick="msgModal('${s.id}','abs','${m}')">Message</button>`)).join('')||empty(offD(td)?'Weekly holiday.':(Object.keys(rec).length?'Nobody is absent today.':'Attendance is not marked yet today.'))}</div>
   <div class="card"><div class="row sp"><h3 style="margin:0">Fees pending (${m})</h3><button class="btn s o" onclick="M.who='fee';setTab('msg')">Message all</button></div>${pend.slice(0,6).map(x=>rowOf(x.s,'Balance '+money(x.b),`<button class="btn s o" onclick="msgModal('${x.s.id}','fee','${m}')">Remind</button>`)).join('')||empty('No pending fees.')}${pend.length>6?`<p class="mu">+ ${pend.length-6} more in Fees</p>`:''}</div>
@@ -287,13 +320,14 @@ function delStu(id){
   Object.keys(db.att).forEach(d=>{delete db.att[d][id];if(!Object.keys(db.att[d]).length)delete db.att[d]});
   Object.values(db.marks).forEach(m=>delete m[id]);save();toast('Student deleted');fillStu()}
 function rProf(){const s=db.students.find(x=>x.id===S.prof);if(!s){S.prof=null;return rStu()}
-  const m=curMonth(),a=attOf(s,m),all={P:0,A:0,L:0};Object.keys(db.att).forEach(d=>{const r=db.att[d];if(r[s.id]&&!offD(d))all[r[s.id]]++});
+  const m=curMonth(),a=attOf(s,m),all={P:0,T:0,A:0,L:0};Object.keys(db.att).forEach(d=>{const r=db.att[d];if(r[s.id]&&!offD(d))all[r[s.id]]++});
   const ps=db.pays.filter(p=>p.sid===s.id).sort((x,y)=>y.date.localeCompare(x.date)),d=dueFor(s,m),pd=paidFor(s.id,m);
   const ts=db.tests.filter(t=>t.cls===s.cls&&(db.marks[t.id]||{})[s.id]!=null).sort((x,y)=>y.date.localeCompare(x.date));
   $('#app').innerHTML=`<div class="row sp noprint"><button class="btn s o" onclick="S.prof=null;render()">← Back</button><button class="btn s" onclick="tab='tst';T.rc='${s.id}';T.month=curMonth();render()">Report card</button><button class="btn s o" onclick="msgModal('${s.id}','prog',curMonth())">Send to parent</button></div>
   <div class="card" style="margin-top:10px"><div class="who">${avEdit(s,68)}<h2 style="margin:0">${esc(s.name)} ${s.archived?'<span class="tag L">Inactive</span>':''}</h2></div><div class="mu">${s.id} · ${esc(s.cls)}${s.batch?' · '+esc(s.batch):''} · Admitted ${s.admDate||'-'}</div>
   <div class="mu">Guardian: ${esc(s.guardian||'-')} · ${esc(s.gphone||'-')} · Student: ${esc(s.phone)}</div><div class="mu">Subjects: ${esc(s.subjects||'-')}</div></div>
-  <div class="card"><h3>Attendance</h3><div class="mu">This month: P ${a.p} · A ${a.a} · L ${a.l}${a.pc==null?'':' · '+a.pc+'%'}</div><div class="mu">All time: P ${all.P} · A ${all.A} · L ${all.L}</div></div>
+  <div class="card"><h3>Attendance</h3><div class="mu">This month: P ${a.p} · Late ${a.lt} · A ${a.a} · L ${a.l}${a.pc==null?'':' · '+a.pc+'%'}</div><div class="mu">All time: P ${all.P} · Late ${all.T} · A ${all.A} · L ${all.L}</div></div>
+  <div class="card"><h3>Namaz (${m})</h3><div class="mu">${nmzText(s,m)}</div></div>
   <div class="card"><h3>Fees (${m})</h3><div class="mu">Due ${money(d)} · Paid ${money(pd)} · Balance ${money(Math.max(0,d-pd))} · ${statusOf(d,pd)}</div>${ps.map(p=>`<div class="mu">${p.date} · ${money(p.amount)} · for ${p.month}${p.method?' · '+esc(p.method):''}${p.ref?' · Ref '+esc(p.ref):''}</div>`).join('')||empty('No payments yet.')}</div>
   <div class="card"><h3>Tests &amp; marks</h3>${ts.map(t=>{const o=db.marks[t.id][s.id];return `<div class="mu">${t.date} · ${esc(t.subject)} · ${o}/${t.total} · ${pct(o,t.total)}% · ${gradeOf(pct(o,t.total))} · ${o>=t.pass?'Pass':'Fail'}</div>`}).join('')||empty('No results yet.')}</div>`}
 
@@ -311,10 +345,10 @@ function rAtt(){
   <div class="mu" style="margin-top:8px">📅 <b>${longDate(A.date)}</b></div><label>Student filter / طالب علم</label><select onchange="A.stu=this.value;rAtt()"><option value="">All students</option>${inCls().map(s=>`<option value="${s.id}" ${s.id===A.stu?'selected':''}>${esc(s.name)}</option>`).join('')}</select>
   <label>Recorded dates (tap to open)</label><div class="chips">${dates.map(d=>`<button class="${d===A.date?'on':''}" onclick="A.date='${d}';loadDraft();rAtt()">${d.slice(5)}</button>`).join('')||'<span class="mu">None yet</span>'}</div></div>
   ${offD(A.date)?'<div class="warn" style="background:#eff6ff;border-color:#93c5fd;color:#1e3a8a">'+DAYS[db.off]+' is the weekly holiday, so attendance is off for this date. Choose another date.</div>':''}<div class="row" style="${offD(A.date)?'display:none':''}"><button class="btn P" style="background:#15803d" onclick="markAll('P')">All Present</button><button class="btn r" onclick="markAll('A')">All Absent</button></div>
-  <div style="margin-top:10px">${list.map(s=>`<div class="card"><div class="who">${av(s,42)}<div><b>${esc(s.name)}</b> <span class="mu">${s.id}</span></div></div>
-  <div class="seg">${['P','A','L'].map(k=>`<button class="${k} ${A.draft[s.id]===k?'on':''}" onclick="mark('${s.id}','${k}')">${LBL[k]}</button>`).join('')}</div></div>`).join('')||(offD(A.date)?'':'<p class="mu">No students in this class.</p>')}</div>
+  <div style="margin-top:10px">${list.map(s=>`<div class="card st-${A.draft[s.id]||''}"><div class="who">${av(s,42)}<div><b>${esc(s.name)}</b> <span class="mu">${s.id}</span></div></div>
+  <div class="seg">${['P','T','A','L'].map(k=>`<button class="${k} ${A.draft[s.id]===k?'on':''}" onclick="mark('${s.id}','${k}')">${LBL[k]}</button>`).join('')}</div></div>`).join('')||(offD(A.date)?'':'<p class="mu">No students in this class.</p>')}</div>
   <div class="row sp" style="position:sticky;bottom:12px;${offD(A.date)?'display:none':''}"><span class="tag ${A.dirty?'L':'P'}">${A.dirty?'Unsaved changes':'Saved'}</span><button class="btn" onclick="saveAtt()">💾 Save attendance</button></div>
-  ${dailyReport()}${report()}`}
+  ${attMsgBar()}${dailyReport()}${report()}`}
 function mark(id,k){if(offD(A.date))return;A.draft[id]=k;A.dirty=true;rAtt()}
 function markAll(k){if(offD(A.date))return;inCls().forEach(s=>A.draft[s.id]=k);A.dirty=true;rAtt()}
 function saveAtt(){if(offD(A.date)){alert('This date is the weekly holiday. Attendance cannot be saved.');return}
@@ -323,11 +357,11 @@ function saveAtt(){if(offD(A.date)){alert('This date is the weekly holiday. Atte
   if(!n){alert('Mark at least one student first.');return}
   db.att[A.date]=rec;save();A.dirty=false;toast('Saved '+n+' record(s)'+(un?' · '+un+' not marked':''));rAtt()}
 function report(){
-  const m=A.month,rows=inCls().filter(s=>!A.stu||s.id===A.stu).map(s=>{let p=0,a=0,l=0;
-    Object.keys(db.att).forEach(d=>{if(d.startsWith(m)&&!offD(d)){const v=db.att[d][s.id];if(v==='P')p++;else if(v==='A')a++;else if(v==='L')l++}});
-    const t=p+a+l;return `<tr><td>${av(s,22)} ${esc(s.name)}</td><td>${p}</td><td>${a}</td><td>${l}</td><td><b>${t?Math.round(p/t*100)+'%':'-'}</b></td></tr>`}).join('');
+  const m=A.month,rows=inCls().filter(s=>!A.stu||s.id===A.stu).map(s=>{let p=0,lt=0,a=0,l=0;
+    Object.keys(db.att).forEach(d=>{if(d.startsWith(m)&&!offD(d)){const v=db.att[d][s.id];if(v==='P')p++;else if(v==='T')lt++;else if(v==='A')a++;else if(v==='L')l++}});
+    const t=p+lt+a+l;return `<tr><td>${av(s,22)} ${esc(s.name)}</td><td>${p}</td><td>${lt}</td><td>${a}</td><td>${l}</td><td><b>${t?Math.round((p+lt)/t*100)+'%':'-'}</b></td></tr>`}).join('');
   return `<div class="card" style="margin-top:12px"><div class="row sp"><h3>Monthly report / ماہانہ رپورٹ</h3><button class="btn s o noprint" onclick="doPrint()">🖨 Print</button></div><input type="month" value="${m}" onchange="A.month=this.value||curMonth();rAtt()">
-  <p class="mu"><b>${rangeLabel(m)}</b> · Class: ${esc(A.cls)} · Generated ${fmtDate(today())}<br>Percentage = Present ÷ marked days. Holiday: ${db.off>=0?DAYS[db.off]:'none'}.</p><div style="overflow-x:auto"><table><tr><th>Student</th><th>P</th><th>A</th><th>L</th><th>%</th></tr>${rows}</table></div></div>`}
+  <p class="mu"><b>${rangeLabel(m)}</b> · Class: ${esc(A.cls)} · Generated ${fmtDate(today())}<br>Percentage = Present ÷ marked days. Holiday: ${db.off>=0?DAYS[db.off]:'none'}.</p><div style="overflow-x:auto"><table><tr><th>Student</th><th>P</th><th>Late</th><th>A</th><th>L</th><th>%</th></tr>${rows}</table></div></div>`}
 
 /* ---------- Fees ---------- */
 function rFee(){
@@ -337,7 +371,7 @@ function rFee(){
   $('#app').innerHTML=`<div class="row sp"><h2>Fees / فیس</h2><button class="btn s noprint" onclick="payPick()">+ Payment</button></div><div class="card"><label>Month / مہینہ</label><input type="month" value="${m}" onchange="F.month=this.value||curMonth();rFee()">
   <label>Status filter</label><select onchange="F.filter=this.value;rFee()"><option value="">All</option>${['Paid','Partial','Unpaid'].map(x=>`<option ${F.filter===x?'selected':''}>${x}</option>`).join('')}</select></div>
   ${feeEditor()}<div class="grid"><div class="stat"><span>Total fees due</span><strong>${money(tot)}</strong></div><div class="stat p"><span>Collected</span><strong>${money(col)}</strong></div><div class="stat a"><span>Outstanding</span><strong>${money(due)}</strong></div></div>
-  ${rows.map(r=>`<div class="card"><div class="row sp"><div class="who">${av(r.s,42)}<div><b>${esc(r.s.name)}</b><div class="mu">${r.s.id}</div></div></div><span class="tag ${r.st}">${r.st==='Partial'?'Partially Paid':r.st}</span></div>
+  ${rows.map(r=>`<div class="card fs-${r.st}"><div class="row sp"><div class="who">${av(r.s,42)}<div><b>${esc(r.s.name)}</b><div class="mu">${r.s.id}</div></div></div><span class="tag ${r.st}">${r.st==='Partial'?'Partially Paid':r.st}</span></div>
   <div class="mu" style="margin-top:6px">Due ${money(r.d)} · Paid ${money(r.p)} · <b style="color:${r.bal>0?'var(--red)':'#0d9488'}">Balance ${money(Math.max(0,r.bal))}</b></div>
   <div class="row" style="margin-top:8px"><button class="btn s" onclick="payForm('${r.s.id}')">+ Record payment</button><button class="btn s o" onclick="history('${r.s.id}')">History / receipts</button><button class="btn s o" onclick="msgModal('${r.s.id}','fee',F.month)">Reminder</button></div></div>`).join('')||empty('No records.')}`}
 function rRcpt(){const p=db.pays.find(x=>x.id===F.rcpt);if(!p){F.rcpt=null;return rFee()}
@@ -401,9 +435,9 @@ function saveMarks(){const t=db.tests.find(x=>x.id===T.id),m={};
 function summary(s,month){let o=0,tt=0;const rows=db.tests.filter(t=>t.cls===s.cls&&t.month===month).map(t=>{const v=(db.marks[t.id]||{})[s.id];if(v!=null){o+=v;tt+=t.total}return{t,v}});return{rows,o,tt,p:pct(o,tt)}}
 function rCard(){const s=db.students.find(x=>x.id===T.rc),m=T.month,r=summary(s,m);
   const peers=act().filter(x=>x.cls===s.cls).map(x=>({id:x.id,p:summary(x,m)})).filter(x=>x.p.tt>0).sort((a,b)=>b.p.p-a.p.p);
-  const pos=peers.findIndex(x=>x.id===s.id)+1;let pa=0,ab=0,lv=0;
-  Object.keys(db.att).forEach(d=>{if(d.startsWith(m)&&!offD(d)){const v=db.att[d][s.id];if(v==='P')pa++;else if(v==='A')ab++;else if(v==='L')lv++}});
-  const at=pa+ab+lv,hist=[];
+  const pos=peers.findIndex(x=>x.id===s.id)+1;let pa=0,ab=0,lv=0,lt2=0;
+  Object.keys(db.att).forEach(d=>{if(d.startsWith(m)&&!offD(d)){const v=db.att[d][s.id];if(v==='P')pa++;else if(v==='T')lt2++;else if(v==='A')ab++;else if(v==='L')lv++}});
+  const at=pa+lt2+ab+lv,hist=[];
   db.tests.filter(t=>t.cls===s.cls&&(db.marks[t.id]||{})[s.id]!=null).sort((a,b)=>b.date.localeCompare(a.date)).forEach(t=>{const o=db.marks[t.id][s.id];hist.push(`<tr><td>${t.month}</td><td>${esc(t.subject)}</td><td>${o}/${t.total}</td><td>${pct(o,t.total)}%</td></tr>`)});
   $('#app').innerHTML=`<div class="row sp noprint"><button class="btn s o" onclick="T.rc=null;rTst()">← Back</button><button class="btn s" onclick="doPrint()">🖨 Print / Save as PDF</button></div>
   <div class="card" style="margin-top:10px"><div style="text-align:center">${LOGO}<h2 style="margin:0">${esc(db.cname)}</h2><div>Monthly Report Card · ${m}</div></div>
@@ -411,7 +445,7 @@ function rCard(){const s=db.students.find(x=>x.id===T.rc),m=T.month,r=summary(s,
   <div style="overflow-x:auto"><table><tr><th>Subject</th><th>Total</th><th>Obtained</th><th>%</th><th>Grade</th><th>Result</th></tr>
   ${r.rows.map(x=>x.v==null?`<tr><td>${esc(x.t.subject)}</td><td>${x.t.total}</td><td colspan="4">Not entered</td></tr>`:`<tr><td>${esc(x.t.subject)}</td><td>${x.t.total}</td><td>${x.v}</td><td>${pct(x.v,x.t.total)}</td><td>${gradeOf(pct(x.v,x.t.total))}</td><td>${x.v>=x.t.pass?'Pass':'Fail'}</td></tr>`).join('')||'<tr><td colspan="6">No tests this month</td></tr>'}
   <tr><th>Overall</th><th>${r.tt}</th><th>${r.o}</th><th>${r.p}</th><th>${r.tt?gradeOf(r.p):'-'}</th><th></th></tr></table></div>
-  <p>${pos?`Class position: <b>${pos}</b> of ${peers.length}<br>`:''}Attendance: Present ${pa}, Absent ${ab}, Leave ${lv}${at?' · '+Math.round(pa/at*100)+'%':''}</p>
+  <p>${pos?`Class position: <b>${pos}</b> of ${peers.length}<br>`:''}Attendance: Present ${pa}, Late ${lt2}, Absent ${ab}, Leave ${lv}${at?' · '+Math.round((pa+lt2)/at*100)+'%':''}</p>
   <label>Teacher remarks</label><textarea style="width:100%;padding:10px;font:inherit;border:1px solid #b9c7b6;border-radius:8px" rows="3" onchange="db.remarks['${s.id}|${m}']=this.value;save();toast('Remarks saved')">${esc(db.remarks[s.id+'|'+m]||'')}</textarea></div>
   <div class="card noprint"><h3>Result history</h3><div style="overflow-x:auto"><table><tr><th>Month</th><th>Subject</th><th>Marks</th><th>%</th></tr>${hist.join('')||'<tr><td colspan="4">No results yet</td></tr>'}</table></div></div>`}
 function gradeForm(){openM(`<h3>Grade scale</h3><p class="mu">Minimum % for each grade.</p>${db.grades.map((g,i)=>`<div class="row"><input type="number" id="gm${i}" value="${g[0]}"><input id="gl${i}" value="${esc(g[1])}"></div>`).join('')}
@@ -426,12 +460,12 @@ function resSheet(c,m){const ts=db.tests.filter(t=>t.cls===c&&t.month===m),rows=
   return `<div class="card"><h3>${esc(c)} · result sheet ${m}</h3>${ts.length?`<div style="overflow-x:auto"><table><tr><th>Student</th>${ts.map(t=>`<th>${esc(t.subject)}<br>/${t.total}</th>`).join('')}<th>%</th><th>Gr</th><th>Pos</th></tr>
   ${rows.map(x=>`<tr><td>${av(x.s,22)} ${esc(x.s.name)}</td>${x.r.rows.map(y=>`<td>${y.v==null?'-':y.v}</td>`).join('')}<td>${x.r.tt?x.r.p:'-'}</td><td>${x.r.tt?gradeOf(x.r.p):'-'}</td><td>${rk.indexOf(x.s.id)+1||'-'}</td></tr>`).join('')}</table></div>`:empty('No tests for this class and month.')}</div>`}
 function rRep(){const cl=classes(),ty=RP.type,m=RP.month;if(RP.cls&&!cl.includes(RP.cls))RP.cls='';const cs=RP.cls?[RP.cls]:cl;let h='';
-  if(ty==='att')h=cs.map(c=>{const rows=act().filter(s=>s.cls===c).map(s=>({s,a:attOf(s,m)})),P=rows.reduce((x,r)=>x+r.a.p,0),N=rows.reduce((x,r)=>x+r.a.t,0);
-    return `<div class="card"><h3>${esc(c)} · attendance ${N?Math.round(P/N*100)+'%':'(no records)'}</h3><div style="overflow-x:auto"><table><tr><th>Student</th><th>P</th><th>A</th><th>L</th><th>%</th></tr>${rows.map(r=>`<tr><td>${av(r.s,22)} ${esc(r.s.name)}</td><td>${r.a.p}</td><td>${r.a.a}</td><td>${r.a.l}</td><td>${r.a.pc==null?'-':r.a.pc+'%'}</td></tr>`).join('')}</table></div></div>`}).join('');
+  if(ty==='att')h=cs.map(c=>{const rows=act().filter(s=>s.cls===c).map(s=>({s,a:attOf(s,m)})),P=rows.reduce((x,r)=>x+r.a.p+r.a.lt,0),N=rows.reduce((x,r)=>x+r.a.t,0);
+    return `<div class="card"><h3>${esc(c)} · attendance ${N?Math.round(P/N*100)+'%':'(no records)'}</h3><div style="overflow-x:auto"><table><tr><th>Student</th><th>P</th><th>Late</th><th>A</th><th>L</th><th>%</th></tr>${rows.map(r=>`<tr><td>${av(r.s,22)} ${esc(r.s.name)}</td><td>${r.a.p}</td><td>${r.a.lt}</td><td>${r.a.a}</td><td>${r.a.l}</td><td>${r.a.pc==null?'-':r.a.pc+'%'}</td></tr>`).join('')}</table></div></div>`}).join('');
   else if(ty==='fee'){let T1=0,T2=0;const rows=act().filter(s=>cs.includes(s.cls)).map(s=>{const d=dueFor(s,m),p=paidFor(s.id,m);T1+=d;T2+=p;return `<tr><td>${av(s,22)} ${esc(s.name)}</td><td>${d}</td><td>${p}</td><td>${Math.max(0,d-p)}</td><td>${statusOf(d,p)}</td></tr>`}).join('');
     h=`<div class="card"><h3>Fee report ${m} (PKR)</h3><div style="overflow-x:auto"><table><tr><th>Student</th><th>Due</th><th>Paid</th><th>Balance</th><th>Status</th></tr>${rows}<tr><th>Total</th><th>${T1}</th><th>${T2}</th><th>${Math.max(0,T1-T2)}</th><th></th></tr></table></div></div>`}
-  else if(ty==='par')h=parList(cs,m);else h=cs.map(c=>resSheet(c,m)).join('');
-  $('#app').innerHTML=`<div class="row sp"><h2>Reports / رپورٹس</h2><button class="btn s noprint" onclick="doPrint()">🖨 Print / Save as PDF</button></div><div class="card noprint"><div class="row"><div><label>Report</label><select onchange="RP.type=this.value;rRep()">${[['att','Attendance'],['fee','Fees'],['res','Results'],['par','Parent messages']].map(x=>`<option value="${x[0]}" ${ty===x[0]?'selected':''}>${x[1]}</option>`).join('')}</select></div>
+  else if(ty==='nmz')h=nmzReport(cs,m);else if(ty==='par')h=parList(cs,m);else h=cs.map(c=>resSheet(c,m)).join('');
+  $('#app').innerHTML=`<div class="row sp"><h2>Reports / رپورٹس</h2><button class="btn s noprint" onclick="doPrint()">🖨 Print / Save as PDF</button></div><div class="card noprint"><div class="row"><div><label>Report</label><select onchange="RP.type=this.value;rRep()">${[['att','Attendance'],['fee','Fees'],['res','Results'],['nmz','Namaz'],['par','Parent messages']].map(x=>`<option value="${x[0]}" ${ty===x[0]?'selected':''}>${x[1]}</option>`).join('')}</select></div>
   <div><label>Month</label><input type="month" value="${m}" onchange="RP.month=this.value||curMonth();rRep()"></div><div><label>Class</label><select onchange="RP.cls=this.value;rRep()"><option value="">All classes</option>${cl.map(c=>`<option ${RP.cls===c?'selected':''}>${esc(c)}</option>`).join('')}</select></div></div></div>${repHead()}${h||empty('No data.')}`}
 /* ---------- Messages to parents ---------- */
 const MN=['January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -445,10 +479,10 @@ function msgText(s,m,kind){
   const sign=ur?`شکریہ\n${me}\n${db.cname}`:`Thank you\n${me}\n${db.cname}`;
   if(kind==='abs')return ur?`${head}\n${s.name} آج (${fmtDate(today())}) ٹیوشن پر غیر حاضر ہے۔ خیریت ہو۔\n\n${sign}`:`${head}\n${s.name} is absent from tuition today (${fmtDate(today())}). We hope all is well.\n\n${sign}`;
   if(kind==='fee')return ur?`${head}\n${s.name} کی ${mn} کی فیس:\nواجب: ${money(d)}\nادا شدہ: ${money(p)}\nباقی: ${money(bal)}\n${bal>0?'براہ کرم باقی فیس ادا کر دیں۔':'الحمدللہ، فیس مکمل ادا ہے۔'}\n\n${sign}`:`${head}\nFee for ${s.name} (${mn}):\nDue: ${money(d)}\nPaid: ${money(p)}\nBalance: ${money(bal)}\n${bal>0?'Please pay the remaining fee.':'Alhamdulillah, the fee is fully paid.'}\n\n${sign}`;
-  const r=summary(s,m),a=attOf(s,m),pos=posOf(s,m),rm=db.remarks[s.id+'|'+m];
+  const r=summary(s,m),a=attOf(s,m),pos=posOf(s,m),rm=db.remarks[s.id+'|'+m],nz=nmzMonth(s,m);
   const tl=r.rows.filter(x=>x.v!=null).map(x=>`• ${x.t.subject}: ${x.v}/${x.t.total} (${pct(x.v,x.t.total)}%)`).join('\n')||(ur?'• اس مہینے کوئی ٹیسٹ نہیں':'• No tests this month');
   const tot=r.tt?(ur?`کل: ${r.o}/${r.tt} (${r.p}%) گریڈ ${gradeOf(r.p)}${pos?' | پوزیشن '+pos:''}`:`Total: ${r.o}/${r.tt} (${r.p}%) Grade ${gradeOf(r.p)}${pos?' | Position '+pos:''}`):'';
-  return ur?`${head}\n${s.name} (${s.id}) کی ${mn} کی رپورٹ\n\nحاضری: حاضر ${a.p} | غیر حاضر ${a.a} | رخصت ${a.l}${a.pc==null?'':' ('+a.pc+'%)'}\n\nٹیسٹ:\n${tl}\n${tot}\n\nفیس: واجب ${money(d)} | ادا ${money(p)} | باقی ${money(bal)}${rm?'\n\nریمارکس: '+rm:''}\n\n${sign}`:`${head}\nMonthly report of ${s.name} (${s.id}) - ${mn}\n\nAttendance: Present ${a.p} | Absent ${a.a} | Leave ${a.l}${a.pc==null?'':' ('+a.pc+'%)'}\n\nTests:\n${tl}\n${tot}\n\nFee: Due ${money(d)} | Paid ${money(p)} | Balance ${money(bal)}${rm?'\n\nRemarks: '+rm:''}\n\n${sign}`}
+  return ur?`${head}\n${s.name} (${s.id}) کی ${mn} کی رپورٹ\n\nحاضری: حاضر ${a.p} | دیر سے ${a.lt} | غیر حاضر ${a.a} | رخصت ${a.l}${a.pc==null?'':' ('+a.pc+'%)'}${nzLine(nz,true)}\n\nٹیسٹ:\n${tl}\n${tot}\n\nفیس: واجب ${money(d)} | ادا ${money(p)} | باقی ${money(bal)}${rm?'\n\nریمارکس: '+rm:''}\n\n${sign}`:`${head}\nMonthly report of ${s.name} (${s.id}) - ${mn}\n\nAttendance: Present ${a.p} | Late ${a.lt} | Absent ${a.a} | Leave ${a.l}${a.pc==null?'':' ('+a.pc+'%)'}${nzLine(nz,false)}\n\nTests:\n${tl}\n${tot}\n\nFee: Due ${money(d)} | Paid ${money(p)} | Balance ${money(bal)}${rm?'\n\nRemarks: '+rm:''}\n\n${sign}`}
 function msgModal(id,kind,m){const s=db.students.find(x=>x.id===id);if(!s)return;
   openM(`<h3>${kind==='fee'?'Fee reminder':kind==='abs'?'Absent notice':'Progress report'}: ${esc(s.name)}</h3><label>Parent WhatsApp number</label><input id="mp" type="tel" value="${esc(s.gphone||s.phone||'')}" placeholder="03xx xxxxxxx">
   <label>Message (you can edit it)</label><textarea id="mt" rows="12" style="width:100%;padding:10px;font:inherit;border:1px solid #cbd5e1;border-radius:10px">${esc(msgText(s,m,kind))}</textarea>
@@ -480,35 +514,64 @@ function setPhoto(id,url){
   if(showForm&&editId===id){$('#phv').innerHTML=av(s,64);toast('Photo saved');return}
   toast('Photo saved');render()}
 function photoClear(){if(editId){const s=db.students.find(x=>x.id===editId);if(s){delete s.photo;save()}}PH='';const s2=db.students.find(x=>x.id===editId);$('#phv').innerHTML=av(s2||{name:$('#fn')&&$('#fn').value||'?'},64)}
-function dailyReport(){const rec=db.att[A.date]||{},ss=inCls(),c={P:0,A:0,L:0};ss.forEach(s=>{if(rec[s.id])c[rec[s.id]]++});const n=c.P+c.A+c.L,ab=ss.filter(s=>rec[s.id]==='A');
-  return `<div class="card"><div class="row sp"><h3 style="margin:0">Daily report</h3><button class="btn s o noprint" onclick="doPrint()">🖨 Print</button></div><p class="mu" style="margin:6px 0"><b>${longDate(A.date)}</b> · Class: ${esc(A.cls)}</p>${offD(A.date)?'<p class="mu">Weekly holiday</p>':`<div class="grid" style="margin:6px 0"><div class="stat p"><span>Present</span><strong>${c.P}</strong></div><div class="stat a"><span>Absent</span><strong>${c.A}</strong></div><div class="stat l"><span>Leave</span><strong>${c.L}</strong></div><div class="stat"><span>Not marked</span><strong>${ss.length-n}</strong></div></div>${ab.length?'<p class="mu">Absent: '+ab.map(x=>esc(x.name)).join(', ')+'</p>':''}`}</div>`}
-function repHead(){const t={att:'Attendance Report',fee:'Fee Report',res:'Result Sheet',par:'Parent Messages'}[RP.type];return `<div class="card" style="text-align:center">${LOGO}<h2 style="margin:4px 0 0">${esc(db.cname)}</h2><b>${t}</b><div class="mu">${rangeLabel(RP.month)} · Class: ${RP.cls?esc(RP.cls):'All'}</div><div class="mu">Generated on ${fmtDate(today())}</div></div>`}
+function dailyReport(){const rec=db.att[A.date]||{},ss=inCls(),c={P:0,T:0,A:0,L:0};ss.forEach(s=>{if(rec[s.id])c[rec[s.id]]++});const n=c.P+c.T+c.A+c.L,nm=k=>ss.filter(s=>rec[s.id]===k).map(x=>esc(x.name)).join(', ');
+  return `<div class="card"><div class="row sp"><h3 style="margin:0">Daily report</h3><button class="btn s o noprint" onclick="doPrint()">🖨 Print</button></div><p class="mu" style="margin:6px 0"><b>${longDate(A.date)}</b> · Class: ${esc(A.cls)}</p>${offD(A.date)?'<p class="mu">Weekly holiday</p>':`<div class="grid" style="margin:6px 0"><div class="stat p"><span>Present</span><strong>${c.P}</strong></div><div class="stat t"><span>Late</span><strong>${c.T}</strong></div><div class="stat a"><span>Absent</span><strong>${c.A}</strong></div><div class="stat l"><span>Leave</span><strong>${c.L}</strong></div><div class="stat"><span>Not marked</span><strong>${ss.length-n}</strong></div></div>${c.A?'<p class="mu">Absent: '+nm('A')+'</p>':''}${c.T?'<p class="mu">Late: '+nm('T')+'</p>':''}`}</div>`}
+function repHead(){const t={att:'Attendance Report',fee:'Fee Report',res:'Result Sheet',nmz:'Namaz Report',par:'Parent Messages'}[RP.type];return `<div class="card" style="text-align:center">${LOGO}<h2 style="margin:4px 0 0">${esc(db.cname)}</h2><b>${t}</b><div class="mu">${rangeLabel(RP.month)} · Class: ${RP.cls?esc(RP.cls):'All'}</div><div class="mu">Generated on ${fmtDate(today())}</div></div>`}
 function feeEditor(){return `<details class="card noprint" ${F.open?'open':''} ontoggle="F.open=this.open"><summary><b>Monthly fee list (edit)</b></summary>${act().map(s=>`<div class="row sp" style="margin-top:8px"><div class="who">${av(s,30)}<span>${esc(s.name)}</span></div><input type="number" min="0" value="${s.fee}" style="width:110px" onchange="setFee('${s.id}',this.value)"></div>`).join('')}</details>`}
 function setFee(id,v){const n=parseFloat(v);if(isNaN(n)||n<0){alert('Enter a valid fee.');rFee();return}db.students.find(x=>x.id===id).fee=n;save();toast('Fee updated');F.open=true;rFee()}
 /* ---------- Messages (type once, send to every parent) ---------- */
 let M={text:'',who:'all',sent:{}};
-const TPL=[['abs','Absent','السلام علیکم! {name} آج ٹیوشن پر غیر حاضر ہے۔ خیریت ہو۔ شکریہ','Assalam o Alaikum! {name} is absent from tuition today. We hope all is well. Thank you.'],
+const TPL=[['abs','Absent','السلام علیکم! {name} آج ({date}) ٹیوشن پر غیر حاضر ہے۔ خیریت ہو۔ شکریہ','Assalam o Alaikum! {name} is absent from tuition today ({date}). We hope all is well. Thank you.'],
+ ['pre','Present','السلام علیکم! {name} آج ({date}) ٹیوشن پر حاضر ہے۔ شکریہ','Assalam o Alaikum! {name} attended tuition today ({date}). Thank you.'],
+ ['late','Late','السلام علیکم! {name} کی حاضری آج ({date}) تاخیر سے لگی۔ براہ کرم وقت کی پابندی کروائیں۔ شکریہ','Assalam o Alaikum! {name} arrived late to tuition today ({date}). Please help with punctuality. Thank you.'],
+ ['nmz','Namaz','السلام علیکم! {name} نے آج ({date}) {namaz} نمازیں پڑھیں۔ ماشاءاللہ۔ شکریہ','Assalam o Alaikum! {name} prayed {namaz} of 5 prayers today ({date}). Thank you.'],
  ['fee','Fee reminder','السلام علیکم! {name} کی فیس Rs {balance} باقی ہے۔ براہ کرم ادا کر دیں۔ شکریہ','Assalam o Alaikum! The pending fee for {name} is Rs {balance}. Please pay it. Thank you.'],
  ['hol','Holiday','السلام علیکم! کل ٹیوشن کی چھٹی ہے۔ شکریہ','Assalam o Alaikum! Tuition is closed tomorrow. Thank you.'],
  ['test','Test','السلام علیکم! کل {name} کا ٹیسٹ ہے۔ تیاری کروا دیں۔ شکریہ','Assalam o Alaikum! {name} has a test tomorrow. Please help with preparation. Thank you.'],
  ['meet','Meeting','السلام علیکم! پیرنٹس میٹنگ ہے۔ آپ سے گزارش ہے کہ تشریف لائیں۔ شکریہ','Assalam o Alaikum! There is a parents meeting. You are requested to attend. Thank you.']];
 function useTpl(k){const t=TPL.find(x=>x[0]===k);M.text=db.lang==='en'?t[3]:t[2];db.draft=M.text;save();rMsg()}
-function recips(){const rec=db.att[today()]||{},m=curMonth();return act().filter(s=>M.who==='absent'?rec[s.id]==='A':M.who==='fee'?dueFor(s,m)-paidFor(s.id,m)>0:true)}
-function fillMsg(s,t){const bal=Math.max(0,dueFor(s,curMonth())-paidFor(s.id,curMonth()));return t.replace(/\{name\}/g,s.name).replace(/\{balance\}/g,bal.toLocaleString('en-PK')).replace(/\{id\}/g,s.id)+'\n\n'+(db.teacher||'')+'\n'+(db.cname||'')}
+function recips(){const rec=db.att[M.date||today()]||{},m=curMonth();return act().filter(s=>M.who==='absent'?rec[s.id]==='A':M.who==='present'?rec[s.id]==='P':M.who==='late'?rec[s.id]==='T':M.who==='fee'?dueFor(s,m)-paidFor(s.id,m)>0:true)}
+function fillMsg(s,t){const bal=Math.max(0,dueFor(s,curMonth())-paidFor(s.id,curMonth()));return t.replace(/\{name\}/g,s.name).replace(/\{balance\}/g,bal.toLocaleString('en-PK')).replace(/\{id\}/g,s.id).replace(/\{date\}/g,fmtDate(M.date||today())).replace(/\{namaz\}/g,nmzOf(s.id,M.date||today()).length)+'\n\n'+(db.teacher||'')+'\n'+(db.cname||'')}
 function rMsg(){if(!M.text&&db.draft)M.text=db.draft;
-  $('#app').innerHTML=`<h2>Message parents / والدین کو پیغام</h2><div class="card"><label>Quick messages</label><div class="chips">${TPL.map(t=>`<button onclick="useTpl('${t[0]}')">${t[1]}</button>`).join('')}</div>
+  $('#app').innerHTML=`<h2>Message parents / والدین کو پیغام</h2>${M.date?`<div class="warn" style="background:#eef2ff;border-color:#a5b4fc;color:#312e81">📅 Attendance of <b>${longDate(M.date)}</b>: ${M.who} students are selected. Check the message, then tap Start sending.</div>`:''}<div class="card"><label>Quick messages</label><div class="chips">${TPL.map(t=>`<button onclick="useTpl('${t[0]}')">${t[1]}</button>`).join('')}</div>
   <label>Type your message <span class="mu">(use {name} for the child's name, {balance} for pending fee)</span></label><textarea id="mtx" rows="5" oninput="M.text=this.value;db.draft=this.value" onchange="save()" style="width:100%;padding:10px;font:inherit;border:1px solid #cbd5e1;border-radius:10px">${esc(M.text)}</textarea>
-  <label>Send to</label><select onchange="M.who=this.value;M.sent={};fillMsgList()"><option value="all" ${M.who==='all'?'selected':''}>All students</option><option value="absent" ${M.who==='absent'?'selected':''}>Absent today</option><option value="fee" ${M.who==='fee'?'selected':''}>Fee pending</option></select>
-  <div class="row" style="margin-top:10px"><button class="btn" onclick="sendNext()">Send next ➜</button><button class="btn o" onclick="copyAll()">Copy message</button></div><p class="mu" id="mcount"></p></div><div id="mlist"></div>`;fillMsgList()}
+  <label>Send to</label><select onchange="M.who=this.value;M.date='';M.sent={};rMsg()"><option value="all" ${M.who==='all'?'selected':''}>All students</option><option value="absent" ${M.who==='absent'?'selected':''}>Absent ${M.date?'('+fmtDate(M.date)+')':'today'}</option><option value="present" ${M.who==='present'?'selected':''}>Present ${M.date?'('+fmtDate(M.date)+')':'today'}</option><option value="late" ${M.who==='late'?'selected':''}>Late ${M.date?'('+fmtDate(M.date)+')':'today'}</option><option value="fee" ${M.who==='fee'?'selected':''}>Fee pending</option></select>
+  <div class="bulk"><b>📤 Send to everyone at once</b><div class="row" style="margin-top:8px"><button class="btn" onclick="bulkWA()">WhatsApp (all parents)</button><button class="btn o" onclick="bulkSMS()">SMS (one message to all)</button></div><p class="mu" style="margin:8px 0 0">WhatsApp: your phone's share sheet opens once; choose WhatsApp, tick all the parents, send. SMS: one message to all selected numbers (carrier charges apply; parents may see each other's numbers). {name} becomes "your child" in these.</p></div>
+  <div class="row" style="margin-top:10px"><button class="btn" onclick="sendNext()">${Object.keys(M.sent).length?'Send next ➜':'Start sending ➜'}</button><button class="btn o" onclick="copyAll()">Copy message</button></div><p class="mu" id="mcount"></p></div><div id="mlist"></div>`;fillMsgList()}
 function fillMsgList(){const L=recips();$('#mcount').textContent=L.length+' parent(s) · '+L.filter(s=>M.sent[s.id]).length+' sent. Each tap opens WhatsApp with the message ready; press send there.';
   $('#mlist').innerHTML=L.map(s=>`<div class="card"><div class="who">${av(s,40)}<div style="flex:1;min-width:0"><b>${esc(s.name)}</b><input type="tel" placeholder="Parent number 03xx..." value="${esc(s.gphone||s.phone||'')}" onchange="setNum('${s.id}',this.value)" style="margin-top:4px;padding:7px"></div><button class="btn s ${M.sent[s.id]?'o':''}" onclick="sendOne('${s.id}')">${M.sent[s.id]?'✔ Sent':'WhatsApp'}</button></div></div>`).join('')||empty('No parents match this filter.')}
+function attMsgBar(){if(offD(A.date))return '';const rec=db.att[A.date]||{},ss=inCls(),n=k=>ss.filter(s=>rec[s.id]===k).length,a=n('A'),t=n('T'),p=n('P');
+  return `<div class="card noprint"><h3>Message parents</h3><p class="mu">${longDate(A.date)}. One tap selects every absent, late or present child. Then send to all at once.</p><div class="row"><button class="btn" onclick="msgAtt('A')" ${a?'':'disabled'}>📩 Absent (${a})</button><button class="btn" onclick="msgAtt('T')" ${t?'':'disabled'}>⏰ Late (${t})</button><button class="btn o" onclick="msgAtt('P')" ${p?'':'disabled'}>✅ Present (${p})</button></div>${A.dirty?'<p class="mu">Tap Save attendance first, then use these buttons.</p>':''}</div>`}
+function msgAtt(k){if(A.dirty){alert('Please tap Save attendance first.');return}M.who={A:'absent',T:'late',P:'present'}[k];M.date=A.date;M.sent={};const t=TPL.find(x=>x[0]===({A:'abs',T:'late',P:'pre'}[k]));M.text=db.lang==='en'?t[3]:t[2];db.draft=M.text;save();setTab('msg')}
+function bulkText(){const ur=db.lang!=='en';return M.text.replace(/\{name\}/g,ur?'آپ کا بچہ':'your child').replace(/\{id\}/g,'').replace(/\{date\}/g,fmtDate(M.date||today()))+'\n\n'+(db.teacher||'')+'\n'+(db.cname||'')}
+function bulkOK(){if(!M.text.trim()){alert('Type a message first.');return false}if(/\{balance\}|\{namaz\}/.test(M.text)){alert('This message has a value that is different for every child ({balance} or {namaz}). Use Start sending for it, or remove that part.');return false}if(!recips().length){alert('No parents are selected.');return false}return true}
+async function bulkWA(){if(!bulkOK())return;const t=bulkText();try{if(navigator.share){await navigator.share({text:t});return}}catch(e){if(e&&e.name==='AbortError')return}window.open('https://wa.me/?text='+encodeURIComponent(t),'_blank')}
+function bulkSMS(){if(!bulkOK())return;const L=recips(),nums=L.map(s=>waNum(s.gphone||s.phone)).filter(Boolean);if(!nums.length){alert('No parent numbers are saved. Add the numbers first.');return}const miss=L.length-nums.length;if(miss&&!confirm(miss+' parent(s) have no number and will be skipped. Continue?'))return;location.href='sms:'+nums.map(n=>'+'+n).join(',')+'?body='+encodeURIComponent(bulkText())}
 function setNum(id,v){const s=db.students.find(x=>x.id===id);s.gphone=v.trim();save()}
 function sendOne(id){if(!M.text.trim()){alert('Type a message first.');return}const s=db.students.find(x=>x.id===id);M.sent[id]=true;window.open('https://wa.me/'+waNum(s.gphone||s.phone)+'?text='+encodeURIComponent(fillMsg(s,M.text)),'_blank');fillMsgList()}
 function sendNext(){const L=recips().filter(s=>!M.sent[s.id]);if(!L.length){toast('All done');return}sendOne(L[0].id)}
 async function copyAll(){try{await navigator.clipboard.writeText(M.text);toast('Copied')}catch(e){toast('Select the text and copy it')}}
+/* ---------- Namaz ---------- */
+let NZ={date:today()};
+const PR=[['F','Fajr','فجر'],['Z','Zuhr','ظہر'],['A','Asr','عصر'],['M','Maghrib','مغرب'],['I','Isha','عشاء']];
+const nmzOf=(id,d)=>((db.nmz[d]||{})[id]||'');
+function nmzMonth(s,m){let n=0,days=0;for(const d in db.nmz){if(!d.startsWith(m))continue;days++;n+=((db.nmz[d]||{})[s.id]||'').length}return{n,days,avg:days?Math.round(n/days*10)/10:0,pc:days?Math.round(n/(days*5)*100):null}}
+const nzLine=(nz,ur)=>nz.days?'\n'+(ur?`نماز: ${nz.n} نمازیں (اوسط ${nz.avg} روزانہ)`:`Namaz: ${nz.n} prayers (avg ${nz.avg} per day)`):'';
+const nmzText=(s,m)=>{const z=nmzMonth(s,m);return z.days?`${z.n} prayers in ${z.days} day(s) · average ${z.avg} per day · ${z.pc}%`:'No namaz recorded this month.'};
+function rNmz(){const d=NZ.date,L=act();
+  const tot=L.reduce((a,s)=>a+nmzOf(s.id,d).length,0),full=L.filter(s=>nmzOf(s.id,d).length===5).length,none=L.filter(s=>!nmzOf(s.id,d)).length;
+  $('#app').innerHTML=`<h2>Namaz / نماز</h2><div class="card"><label>Date / تاریخ</label><input type="date" value="${d}" onchange="NZ.date=this.value||today();rNmz()"><div class="mu" style="margin-top:6px">📅 <b>${longDate(d)}</b></div></div>
+  <div class="grid"><div class="stat p"><span>All 5 prayers</span><strong>${full}</strong></div><div class="stat b"><span>Total prayers</span><strong>${tot}</strong></div><div class="stat a"><span>Not recorded</span><strong>${none}</strong></div><div class="stat"><span>Average per child</span><strong>${L.length?(tot/L.length).toFixed(1):0}</strong></div></div>
+  <div class="row noprint" style="margin-bottom:8px"><button class="btn s o" onclick="nmzAll(5)">All prayed 5</button><button class="btn s o" onclick="nmzAll(0)">Clear all</button><button class="btn s" onclick="nmzMsg()">💬 Message parents</button></div>
+  ${L.map(s=>{const v=nmzOf(s.id,d);return `<div class="card"><div class="row sp"><div class="who">${av(s,40)}<b>${esc(s.name)}</b></div><span class="tag ${v.length===5?'P':v.length?'L':'A'}">${v.length}/5</span></div><div class="pr">${PR.map(p=>`<button class="${v.includes(p[0])?'on':''}" onclick="tglN('${s.id}','${p[0]}')">${p[1]}<small>${p[2]}</small></button>`).join('')}</div></div>`}).join('')||empty('No students.')}`}
+function tglN(id,k){const d=NZ.date,r=db.nmz[d]=db.nmz[d]||{};let v=r[id]||'';v=v.includes(k)?v.replace(k,''):v+k;v=PR.map(p=>p[0]).filter(x=>v.includes(x)).join('');if(v)r[id]=v;else delete r[id];if(!Object.keys(r).length)delete db.nmz[d];save();rNmz()}
+function nmzAll(n){const d=NZ.date;if(n===0){if(!confirm('Clear namaz for everyone on this date?'))return;delete db.nmz[d]}else{db.nmz[d]=db.nmz[d]||{};act().forEach(s=>db.nmz[d][s.id]='FZAMI')}save();rNmz()}
+function nmzMsg(){M.who='all';M.date=NZ.date;M.sent={};const t=TPL.find(x=>x[0]==='nmz');M.text=db.lang==='en'?t[3]:t[2];db.draft=M.text;save();setTab('msg')}
+function nmzReport(cs,m){const rows=act().filter(s=>cs.includes(s.cls)).map(s=>({s,z:nmzMonth(s,m)})),days=Object.keys(db.nmz).filter(d=>d.startsWith(m)).length;
+  return `<div class="card"><h3>Namaz report</h3><div style="overflow-x:auto"><table><tr><th>Student</th><th>Prayers</th><th>Avg/day</th><th>%</th></tr>${rows.map(r=>`<tr><td>${av(r.s,22)} ${esc(r.s.name)}</td><td>${r.z.n}</td><td>${r.z.avg}</td><td>${r.z.pc==null?'-':r.z.pc+'%'}</td></tr>`).join('')}</table></div><p class="mu">Based on ${days} day(s) with namaz recorded. 100% = all 5 prayers every recorded day.</p></div>`}
 /* ---------- Settings ---------- */
 function rSet(){
-  const th=[['light','Navy','#0f3d6b'],['ocean','Ocean','#0e7490'],['emerald','Emerald','#047857'],['purple','Purple','#6d28d9'],['maroon','Maroon','#be123c'],['sunset','Sunset','#c2410c'],['dark','Dark','#111c30']],cur=document.documentElement.dataset.theme||'light';
+  const th=[['light','Royal','#312e81'],['navy','Navy','#0f3d6b'],['ocean','Ocean','#0e7490'],['emerald','Emerald','#047857'],['purple','Purple','#6d28d9'],['maroon','Maroon','#be123c'],['sunset','Sunset','#c2410c'],['dark','Dark','#111c30']],cur=document.documentElement.dataset.theme||'light';
   $('#app').innerHTML=`<h2>Settings / سیٹنگز</h2>
   <div class="card"><h3>Centre &amp; sender</h3><label>Centre name (shown at the top, reports and messages)</label><input value="${esc(db.cname||'')}" onchange="db.cname=this.value.trim()||DEFNAME;save();applyBrand();toast('Saved')">
   <label>Your name (used in messages)</label><input value="${esc(db.teacher||'')}" onchange="db.teacher=this.value.trim()||'Sir Kamran Zahoor';save();toast('Saved')">
@@ -522,7 +585,7 @@ function rSet(){
   <div class="card"><h3>Start fresh</h3><p class="mu">Deletes ALL records. Download a backup first.</p><button class="btn s r" onclick="wipeAll()">Delete all data</button></div>
   <div class="card"><h3>About</h3><p class="mu">Version: ${APP_VER}. Everything is stored only on this phone. Nothing is sent anywhere.</p><div class="row"><button class="btn s o" onclick="checkUpdate()">Check for update</button><button class="btn s o" onclick="refreshApp()">Refresh app (keeps your data)</button></div></div>`}
 function setTheme(t){document.documentElement.dataset.theme=t;try{localStorage.setItem('llcc_theme',t)}catch(e){}db.theme=t;save();render()}
-const APP_VER='v7';let UPD='';
+const APP_VER='v9';let UPD='';
 async function refreshApp(){try{if(window.caches){const k=await caches.keys();await Promise.all(k.map(x=>caches.delete(x)))}if(navigator.serviceWorker){const r=await navigator.serviceWorker.getRegistrations();await Promise.all(r.map(x=>x.unregister()))}}catch(e){}toast('Refreshing...');setTimeout(()=>location.replace(location.pathname+'?r='+Date.now()),300)}
 async function checkUpdate(silent){if(!/^https?:$/.test(location.protocol)){if(!silent)toast('Update check works in the online/installed app');return}
   try{const r=await fetch(location.pathname+'?cb='+Date.now(),{cache:'no-store'}),t=await r.text(),m=t.match(/const APP_VER='([^']+)'/);
